@@ -1,0 +1,7 @@
+:root {
+	--font-primary--family: "Noto Sans JP";
+}
+
+html {
+	font-family: "Noto Sans JP", sans-serif !important;
+}
