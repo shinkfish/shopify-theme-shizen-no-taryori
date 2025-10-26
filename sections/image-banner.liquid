@@ -1,0 +1,233 @@
+{%- style -%}
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-main img {
+    border-radius: 0;
+  }
+  .hero-thumbs {
+    position: relative;
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero-main {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .hero-main {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .hero :global(.button_primary) {
+    position: absolute;
+    bottom: 2%;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+{%- endstyle -%}
+
+<div class="image-banner-section section-{{ section.id }}-padding">
+  <div class="hero">
+    <!-- メインスライダー -->
+    <div class="hero-main swiper-main">
+      <div
+        class="swiper"
+        data-swiperSlidePC="1"
+        data-swiperSlideSP="1"
+        data-swiperShowNavigation="true"
+      >
+        <div class="swiper-wrapper">
+          <!-- 追加の画像ブロック -->
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'image' -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <img
+                      src="{{ block.settings.image | image_url: width: 1200 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    >
+                  </div>
+                {% else %}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <img
+                      src="{{ 'tokura-hero_1' |  append: '.webp' | asset_url }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    >
+                  </div>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+    <!-- サムネイルスライダー -->
+    <div class="px-5 relative">
+      <div class="hero-thumbs swiper-thumbs">
+        <div class="relative">
+          <div class="swiper swiper-thumbnails">
+            <div class="swiper-wrapper">
+              <!-- 追加のサムネイル -->
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'image' -%}
+                    {%- if block.settings.image != blank -%}
+                      <div class="swiper-slide" {{ block.shopify_attributes }}>
+                        <img
+                          src="{{ block.settings.image | image_url: width: 200 }}"
+                          alt="thumbnail-{{ forloop.index | plus: 6 }}"
+                          width="200"
+                          height="auto"
+                          style="object-fit: cover;"
+                        >
+                      </div>
+                    {% else %}
+                      <div class="swiper-slide" {{ block.shopify_attributes }}>
+                        <img
+                          src="{{ 'tokura-hero_1' |  append: '.webp' | asset_url }}"
+                          alt="thumbnail-{{ forloop.index }}"
+                          width="200"
+                          height="auto"
+                          loading="lazy"
+                          class="object-fit: cover;"
+                        >
+                      </div>
+                    {%- endif -%}
+                {%- endcase -%}
+              {%- endfor -%}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 今日のコンディション表示 -->
+{%- if section.settings.condition_page != blank -%}
+  {%- assign condition_page = pages[section.settings.condition_page] -%}
+  {%- if condition_page -%}
+    <div class="ly_cont ly_cont_block">
+      <div class="text-2xl font-extrabold">本日の尾瀬戸倉</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-8 py-5">
+        <div class="col-span-1">
+          <div class="flex md:flex-row gap-2">
+            <div class="flex flex-col items-center gap-3 w-full">
+              <p class="el_head_label el_head_black">天気</p>
+              <p class="font-bold">{{ condition_page.metafields.custom.conditions_weather }}</p>
+            </div>
+            <div class="flex flex-col items-center gap-3 w-full">
+              <p class="el_head_label el_head_black">気温</p>
+              <p class="font-bold">{{ condition_page.metafields.custom.conditions_temperature }}℃</p>
+            </div>
+            <div class="flex flex-col items-center gap-3 w-full">
+              <p class="el_head_label el_head_black">積雪</p>
+              <p class="font-bold">{{ condition_page.metafields.custom.conditions_snowfall }} cm</p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col md:flex-row gap-3">
+            <div class="flex flex-col gap-3 w-full rte">
+              <div class="el_head_label el_head_black">運行情報</div>
+              <div class="text-sm">
+                {{ condition_page.metafields.custom.conditions_operation | metafield_tag }}
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 w-full rte">
+              <div class="el_head_label el_head_black">コース</div>
+              <div class="text-sm">
+                {{ condition_page.metafields.custom.conditions_course | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="flex flex-col gap-3 w-full rte">
+            <div class="el_head_box">
+              <div class="el_head_label el_head_black">インフォメーション</div>
+              <div class="el_head_box_body">
+                {{ condition_page.content }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="ly_cont ly_cont_block">
+      <div class="text-red-500">指定されたページが見つかりません</div>
+    </div>
+  {%- endif -%}
+{%- else -%}
+  <div class="ly_cont ly_cont_block">
+    <div class="text-gray-500">コンディションページが設定されていません</div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.image-banner.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "page",
+      "id": "condition_page",
+      "label": "コンディションページハンドル",
+      "info": "今日のコンディション情報を管理するページを選択"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "画像",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カードスライダー",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -9,10 +9,10 @@
  */
 {
 	"sections": {
-		"main": {
-			"type": "hello-world",
-			"settings": {}
+		"image_banner": {
+			"type": "image-banner",
+			"blocks": {}
 		}
 	},
-	"order": ["main"]
+	"order": ["image_banner"]
 }

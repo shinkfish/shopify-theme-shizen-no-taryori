@@ -257,56 +257,60 @@
   }
 {% endstylesheet %}
 
-{% javascript %}
-  class MenuDrawer {
-    constructor() {
-      this.drawer = document.getElementById('mobile-menu-drawer');
-      this.openBtn = document.querySelector('.hamburger-btn');
-      this.closeBtn = document.querySelector('.menu-drawer__close');
-      this.overlay = document.querySelector('.menu-drawer__overlay');
+<script>
+  (function () {
+    class MenuDrawer {
+      constructor() {
+        this.drawer = document.getElementById('mobile-menu-drawer');
+        this.openBtn = document.querySelector('.hamburger-btn');
+        this.closeBtn = document.querySelector('.menu-drawer__close');
+        this.overlay = document.querySelector('.menu-drawer__overlay');
 
-      this.bindEvents();
-    }
-
-    bindEvents() {
-      if (this.openBtn) {
-        this.openBtn.addEventListener('click', () => this.open());
-      }
-      if (this.closeBtn) {
-        this.closeBtn.addEventListener('click', () => this.close());
-      }
-      if (this.overlay) {
-        this.overlay.addEventListener('click', () => this.close());
-      }
-
-      // ESCキーでメニューを閉じる
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.drawer.getAttribute('aria-hidden') === 'false') {
-          this.close();
+        if (this.drawer && this.openBtn) {
+          this.bindEvents();
         }
-      });
+      }
+
+      bindEvents() {
+        if (this.openBtn) {
+          this.openBtn.addEventListener('click', () => this.open());
+        }
+        if (this.closeBtn) {
+          this.closeBtn.addEventListener('click', () => this.close());
+        }
+        if (this.overlay) {
+          this.overlay.addEventListener('click', () => this.close());
+        }
+
+        // ESCキーでメニューを閉じる
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.drawer.getAttribute('aria-hidden') === 'false') {
+            this.close();
+          }
+        });
+      }
+
+      open() {
+        this.drawer.setAttribute('aria-hidden', 'false');
+        this.openBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      close() {
+        this.drawer.setAttribute('aria-hidden', 'true');
+        this.openBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
     }
 
-    open() {
-      this.drawer.setAttribute('aria-hidden', 'false');
-      this.openBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+    // DOMの読み込み完了後に初期化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => new MenuDrawer());
+    } else {
+      new MenuDrawer();
     }
-
-    close() {
-      this.drawer.setAttribute('aria-hidden', 'true');
-      this.openBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-  }
-
-  // DOMの読み込み完了後に初期化
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => new MenuDrawer());
-  } else {
-    new MenuDrawer();
-  }
-{% endjavascript %}
+  })();
+</script>
 
 {% schema %}
 {
