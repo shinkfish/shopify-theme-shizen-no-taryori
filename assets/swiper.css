@@ -1,0 +1,289 @@
+/* Swiper CSS */
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
+
+/* カスタムSwiperスタイル */
+.swiper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.swiper-wrapper {
+	align-items: stretch !important;
+}
+
+.swiper-slide {
+	display: flex;
+	flex-direction: column;
+}
+
+.swiper-slide > div {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.swiper-slide-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.swiper-slide-imgWrapper {
+	overflow: hidden;
+	aspect-ratio: 1/1;
+	border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	flex-shrink: 0;
+}
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.swiper-slide-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+/* =================================== */
+/* navigation */
+/* =================================== */
+
+/* ナビゲーションボタンの基本スタイル */
+.swiper-button-prev,
+.swiper-button-next {
+	border: 2.5px solid var(--color-black);
+	width: 45px !important;
+	height: 45px !important;
+	border-radius: 50% !important;
+	box-shadow: 0px 6px 6px -2px rgba(0, 0, 0, 0.7);
+	fill: var(--color-black); /* SVGの色をfillプロパティで制御 */
+	transition: all 0.3s ease; /* ホバー時のスムーズな色変更 */
+	bottom: 0 !important;
+	background-color: #ffffffcf;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+	display: none;
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+	width: 18px !important;
+	height: auto;
+	fill: var(--color-black);
+	position: absolute;
+	left: 50%;
+	transform-origin: center;
+}
+.swiper-button-prev svg {
+	transform: translateX(-55%);
+}
+.swiper-button-next svg {
+	transform: translateX(-45%);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+	transition: all 0.3s ease; /* ホバー時のスムーズな色変更 */
+	width: 52px !important;
+	height: 52px !important;
+	background-color: var(--color-black);
+	transform-origin: center;
+}
+.swiper-button-prev:hover svg,
+.swiper-button-next:hover svg {
+	fill: #fff !important;
+	stroke: #fff;
+}
+
+/* =================================== */
+/* pagination */
+/* =================================== */
+
+.swiper-pagination-bullet {
+	background: #000;
+}
+
+.swiper_outerScroll.swiper-wrapper {
+	padding-bottom: 60px !important;
+}
+.swiper_outerScroll .swiper-pagination {
+	bottom: 0;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+	background-color: #fff;
+	opacity: 0.6;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+.swiper-pagination .swiper-pagination-bullet-active {
+	background-color: var(--color-snowpark-accent-1);
+	opacity: 1;
+	width: 30px;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+/* =================================== */
+/* hero section */
+/* =================================== */
+.image-banner-section {
+	position: relative;
+}
+
+.swiper-main .swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-main .swiper-slide {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-main .swiper-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.hero-thumbs {
+	margin-top: 1rem;
+}
+
+.swiper-thumbnails {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-thumbnails .swiper-slide {
+	width: 100px;
+	height: auto;
+	border-radius: 4px;
+	overflow: hidden;
+	cursor: pointer;
+	opacity: 0.6;
+	transition: opacity 0.3s ease;
+}
+
+.swiper-thumbnails .swiper-slide-thumb-active {
+	opacity: 1;
+}
+
+.swiper-thumbnails .swiper-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.swiper-button-next-thumbs,
+.swiper-button-prev-thumbs {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	width: 30px;
+	height: 30px;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	color: white;
+}
+
+.swiper-button-next-thumbs {
+	right: 10px;
+}
+
+.swiper-button-prev-thumbs {
+	left: 10px;
+}
+
+.banner__content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+}
+
+.banner__box {
+	text-align: center;
+	padding: 2rem;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 8px;
+	max-width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+	.hero-main {
+		height: 300px;
+	}
+
+	.swiper-thumbnails .swiper-slide {
+		width: 80px;
+	}
+}
+
+/* =================================== */
+/* blog section */
+/* =================================== */
+.blog .swiper-wrapper {
+	align-items: stretch; /* 全スライドを最大高さに合わせる */
+}
+
+.blog .swiper-slide {
+	display: flex;
+	flex-direction: column;
+	border-radius: 4px;
+}
+
+.blog .swiper-slide > div {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* テキスト部分 - flexboxで高さを管理 */
+.blog .article-text {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 150px;
+}
+
+/* タイトルと本文部分 */
+.blog .article-content-text {
+	flex: 1; /* 残りのスペースを占有 */
+}
+
+.blog .article-title {
+	margin-bottom: 0.5rem;
+}
+
+.blog .article-excerpt {
+	margin-bottom: 0;
+}
+
+/* meta情報を常に下部に配置 */
+.blog .article-meta {
+	margin-top: auto; /* 自動的に下部に配置 */
+	padding-top: 1rem;
+	border-top: 1px solid #eee;
+}
+
+/* =================================== */
+/* unique section */
+/* =================================== */
