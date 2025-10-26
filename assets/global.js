@@ -1223,14 +1223,6 @@ if (!customElements.get("bulk-add")) {
 	customElements.define("bulk-add", BulkAdd);
 }
 
-// Remove critical-hidden class on page load
-document.addEventListener("DOMContentLoaded", function () {
-	const criticalElements = document.querySelectorAll(".critical-hidden");
-	criticalElements.forEach((element) => {
-		element.classList.remove("critical-hidden");
-	});
-});
-
 class CartPerformance {
 	static #metric_prefix = "cart-performance";
 

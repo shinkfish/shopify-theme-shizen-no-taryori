@@ -26,8 +26,11 @@
     {% render 'css-variables' %}
 
     {% # Load and preload the critical CSS %}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'tailwind-output.css' | asset_url | stylesheet_tag: preload: true }}
+
+    <!-- Swiper CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    {{ 'swiper.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
 
     {% # Social, title, etc. %}
@@ -36,7 +39,6 @@
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 
     {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
