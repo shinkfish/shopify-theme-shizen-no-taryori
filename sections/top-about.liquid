@@ -1,5 +1,46 @@
 <section>
   <div class="bg-primary text-on-primary">
-    <div class="ly_cont ly_cont_section">aaaaaaaaa</div>
+    <div class="top-about_swiper">
+      <div
+        class="swiper"
+        data-swiperSlidePC="4"
+        data-swiperSlideSP="3"
+        data-swiperShowNavigation="false"
+        data-autoScroll="true"
+      >
+        <div class="swiper-wrapper">
+          <!-- 追加の画像ブロック -->
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'image' -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <img
+                      src="{{ block.settings.image | image_url: width: 1200 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    >
+                  </div>
+                {% else %}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <img
+                      src="{{ 'tokura-hero_1' |  append: '.webp' | asset_url }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    >
+                  </div>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    <div class="ly_cont ly_cont_section"></div>
   </div>
 </section>
