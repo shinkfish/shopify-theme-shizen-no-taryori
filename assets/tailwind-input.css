@@ -1,1 +1,78 @@
 @import "tailwindcss";
+@theme {
+	--breakpoint-custom: 90rem;
+
+	/* ===========================================
+	   SNOWPARK THEME COLORS
+	   =========================================== */
+	--color-primary: #5b7832;
+	--color-on-primary: #fff;
+	--color-primary-bg: #c3f2c0;
+	--color-hover-primary: #40ec3a;
+
+	--color-primary-variant: #34a230;
+	--color-hover-primary-variant: #53a950;
+	--color-on-primary-variant: #ffffff;
+
+	--color-secondary: #4998f7;
+	--color-secondary-bg: #bfe0fe;
+	--color-secondary-variant: #3b80cf;
+	--color-on-secondary: #ffffff;
+	--color-on-secondary-variant: #ffffff;
+
+	--color-accent-1: #ffd93f;
+	--color-accent-2: #50e3c2;
+	--color-on-accent-1: #0d0d0d;
+	--color-on-accent-2: #0d0d0d;
+
+	--color-navy: #2b70ca;
+	--color-on-navy: #ffffff;
+	--color-red: #cb3260;
+	--color-on-red: #ffffff;
+	--color-pink: #fc5787;
+	--color-pink-bg: #ffccda;
+	--color-on-pink: #0d0d0d;
+
+	/* ===========================================
+   style
+   =========================================== */
+	--shadow-custom: 0px 4px 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================================
+	layout
+   =========================================== */
+
+.ly_cont_body {
+	@apply grid grid-cols-1 grid-rows-[auto_1fr_auto] min-h-screen min-w-full;
+}
+
+.ly_cont {
+	@apply mx-auto px-4 w-full max-w-7xl;
+}
+.ly_cont_section {
+	@apply mt-30 px-4;
+}
+
+.ly_cont_block {
+	@apply mt-18;
+}
+
+.ly_sec_heading {
+	@apply text-4xl font-extrabold;
+	&.hp_sec_heading_line {
+		@apply w-fit relative px-1 min-w-[200px] text-center;
+		&::after {
+			@apply content-[''] h-4 w-full absolute left-0 -bottom-1 rounded-xs mix-blend-multiply;
+		}
+		&.bg_primary {
+			&::after {
+				@apply bg-primary;
+			}
+		}
+	}
+}
+
+.ly_sec_heading_wrapper {
+	@apply mt-20 lg:mt-40 mb-10;
+}

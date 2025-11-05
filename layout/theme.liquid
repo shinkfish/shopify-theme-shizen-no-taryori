@@ -50,10 +50,11 @@
     {{ content_for_header }}
   </head>
 
-  <body>
+  <body class="ly_cont_body">
     {% sections 'header-group' %}
-
-    {{ content_for_layout }}
+    <main>
+      {{ content_for_layout }}
+    </main>
 
     {% sections 'footer-group' %}
 
