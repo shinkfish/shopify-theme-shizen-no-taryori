@@ -53,6 +53,9 @@
 .ly_cont_section {
 	@apply mt-30 px-4;
 }
+.ly_cont_section_bg {
+	@apply pt-30 px-4;
+}
 
 .ly_cont_block {
 	@apply mt-18;
@@ -75,4 +78,41 @@
 
 .ly_sec_heading_wrapper {
 	@apply mt-20 lg:mt-40 mb-10;
+}
+
+/* ===========================================
+	Unique
+   =========================================== */
+.un_verticalLabel {
+	writing-mode: vertical-rl;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	line-height: 1.4;
+	display: inline-block;
+}
+
+/* カギカッコを含む行の調整 */
+.un_verticalLabel p {
+	text-indent: 0;
+	margin-block: 0;
+	padding-inline-start: 0.1em;
+}
+
+/* カギ括弧を含む最初の行を「いち」の行と揃える */
+.un_verticalLabel p:first-child {
+	padding-inline-start: 0;
+	margin-inline-start: 0;
+}
+
+/* 「いち」の行の位置に合わせる */
+.un_verticalLabel p:not(:first-child) {
+	padding-inline-start: 0.1em;
+}
+
+/* カギカッコをspanで囲み、位置を調整 */
+.un_quote {
+	display: inline-block;
+	margin-inline-start: -0.5em; /* 全角文字の幅を考慮して左にずらす */
+	margin-inline-end: 0.2rem;
+	vertical-align: baseline;
 }

@@ -1,12 +1,34 @@
 <section>
-  <div class="bg-primary text-on-primary">
+  <div class="bg-primary text-on-primary pb-20">
+    <div class="ly_cont ly_cont_section_bg ">
+      <div class="top-about_title relative z-10 text-black">
+        <div class="top-about_textBox absolute -top-10 right-0 flex flex-row-reverse items-start gap-2 font-bold">
+          <div class="bg-white p-3 un_verticalLabel text-5xl w-fit">
+            <p><span class="un_quote">「</span>自然のまま」が、</p>
+          </div>
+          <div class="bg-white p-3 un_verticalLabel text-5xl w-fit">
+            <p>いちばんおいしい。</p>
+          </div>
+          <div class="bg-white p-3 un_verticalLabel">
+            <p>秋田の大自然が育てた恵みを、</p>
+            <p>心をこめてやさしく仕上げました。</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="top-about_swiper">
       <div
         class="swiper"
         data-swiperSlidePC="4"
-        data-swiperSlideSP="3"
+        data-swiperSlideSP="2"
         data-swiperShowNavigation="false"
         data-autoScroll="true"
+        data-autoScrollDelay="0"
+        data-autoScrollContinuous="true"
+        data-loop="true"
+        data-spaceBetween-sp="0"
+        data-spaceBetween-pc="0"
+        data-scrollSpeed="8000"
       >
         <div class="swiper-wrapper">
           <!-- 追加の画像ブロック -->
@@ -14,25 +36,25 @@
             {%- case block.type -%}
               {%- when 'image' -%}
                 {%- if block.settings.image != blank -%}
-                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="swiper-slide aspect-square" {{ block.shopify_attributes }}>
                     <img
                       src="{{ block.settings.image | image_url: width: 1200 }}"
                       alt="{{ block.settings.image.alt | escape }}"
-                      width="{{ block.settings.image.width }}"
-                      height="{{ block.settings.image.height }}"
+                      width="1200"
+                      height="800"
                       loading="lazy"
-                      style="object-fit: cover;"
+                      class="object-cover h-full"
                     >
                   </div>
                 {% else %}
-                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="swiper-slide aspect-square" {{ block.shopify_attributes }}>
                     <img
-                      src="{{ 'tokura-hero_1' |  append: '.webp' | asset_url }}"
+                      src="{{ 'image-block_default' |  append: '.webp' | asset_url }}"
                       alt="{{ block.settings.image.alt | escape }}"
-                      width="{{ block.settings.image.width }}"
-                      height="{{ block.settings.image.height }}"
+                      width="1200"
+                      height="800"
                       loading="lazy"
-                      style="object-fit: cover;"
+                      class="object-cover h-full"
                     >
                   </div>
                 {%- endif -%}
@@ -41,7 +63,6 @@
         </div>
       </div>
     </div>
-    <div class="ly_cont ly_cont_section"></div>
   </div>
 </section>
 

@@ -80,11 +80,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		const mousewheel = mousewheelAttr === "true";
 		const slideCentered = container.hasAttribute("slideCentered");
 		const freeMode = container.hasAttribute("freeMode");
+		// loop設定を取得
+		const loopAttr = container.getAttribute("data-loop");
+		const loop = loopAttr === "true";
+
+		// space between
+		const spaceBetweenSPAttr = container.getAttribute("data-spaceBetween-sp");
+		const spaceBetweenPCAttr = container.getAttribute("data-spaceBetween-pc");
+		// data-spaceBetweenが設定されている場合のみその値を使用、それ以外はデフォルト値
+		const spaceBetweenSPDefault = 8; // モバイルのデフォルト値
+		const spaceBetweenPCDefault = 24; // PCのデフォルト値
+		const spaceBetweenSP = spaceBetweenSPAttr !== null ? (spaceBetweenSPAttr === "auto" ? "auto" : parseFloat(spaceBetweenSPAttr)) : spaceBetweenSPDefault;
+		const spaceBetweenPC = spaceBetweenPCAttr !== null ? (spaceBetweenPCAttr === "auto" ? "auto" : parseFloat(spaceBetweenPCAttr)) : spaceBetweenPCDefault;
 
 		// 新しい属性を取得
 		const autoScrollAttr = container.getAttribute("data-autoScroll");
 		const autoScroll = autoScrollAttr === "true";
-		const autoScrollDelay = parseInt(container.getAttribute("data-autoScrollDelay")) || 4000;
+		const autoScrollDelayAttr = container.getAttribute("data-autoScrollDelay");
+		const autoScrollDelay = autoScrollDelayAttr !== null ? parseFloat(autoScrollDelayAttr) : 4000;
+
+		// scrollSpeed設定を取得
+		const scrollSpeedAttr = container.getAttribute("data-scrollSpeed");
+		const scrollSpeed = scrollSpeedAttr !== null ? parseInt(scrollSpeedAttr) : 300;
+
 		const fadeEffectAttr = container.getAttribute("data-fade");
 		const fadeEffect = fadeEffectAttr === "true";
 		const fadeSpeed = parseInt(container.getAttribute("data-fadeSpeed")) || 1000;
@@ -99,8 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			slidesPerView: slidePerViewSP,
 			freeMode: freeMode,
 			direction: direction === "vertical" ? "vertical" : direction,
-			spaceBetween: 15,
+			spaceBetween: spaceBetweenSP,
 			centeredSlides: slideCentered,
+			loop: loop,
+			speed: scrollSpeed,
 			mousewheel: mousewheel,
 			scrollbar: {
 				el: `#${swiperId} + .swiper-scrollbar`,
@@ -110,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			breakpoints: {
 				740: {
 					slidesPerView: slidePerViewPC,
-					spaceBetween: 20
+					spaceBetween: spaceBetweenPC
 				}
 			},
 			pagination: {
@@ -141,10 +161,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// オートスクロールの設定
 		if (autoScroll) {
-			swiperConfig.autoplay = {
-				delay: autoScrollDelay,
-				disableOnInteraction: false
-			};
+			// data-autoScrollContinuous="true" の場合は常に流れるように
+			const continuous = container.getAttribute("data-autoScrollContinuous") === "true";
+
+			if (continuous) {
+				swiperConfig.autoplay = {
+					delay: 0,
+					disableOnInteraction: false
+				};
+				swiperConfig.speed = parseInt(container.getAttribute("data-scrollSpeed")) || 6000;
+				swiperConfig.loop = true;
+				swiperConfig.allowTouchMove = false;
+
+				// CSSで線形モーションを適用
+				container.querySelector(".swiper-wrapper").style.transitionTimingFunction = "linear";
+			} else {
+				swiperConfig.autoplay = {
+					delay: autoScrollDelay,
+					disableOnInteraction: false
+				};
+			}
 		}
 
 		// サムネイルスライダーの設定
