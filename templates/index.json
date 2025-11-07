@@ -82,56 +82,7 @@
 			},
 			"block_order": ["image_keEiWp", "image_pwR9q9", "image_MtebTf", "image_EPy6kg", "image_kBzmEh", "image_xgB64C", "image_ihxWgM"],
 			"settings": {}
-		},
-		"top-about2": {
-			"type": "top-about",
-			"blocks": {
-				"image_keEiWp": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
-					}
-				},
-				"image_pwR9q9": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				},
-				"image_MtebTf": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/692738e563c31e0fa26dfff2c4ab78fe.jpg"
-					}
-				},
-				"image_EPy6kg": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/cf880f7f0edb1aabb379db755b35ac21.jpg"
-					}
-				},
-				"image_kBzmEh": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/kids-beanie.jpg"
-					}
-				},
-				"image_xgB64C": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
-					}
-				},
-				"image_ihxWgM": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/fashion-model-walks-down-city-street.jpg"
-					}
-				}
-			},
-			"block_order": ["image_keEiWp", "image_pwR9q9", "image_MtebTf", "image_EPy6kg", "image_kBzmEh", "image_xgB64C", "image_ihxWgM"],
-			"settings": {}
 		}
 	},
-	"order": ["image_banner", "top-about", "top-about2"]
+	"order": ["image_banner", "top-about"]
 }
