@@ -3406,5 +3406,9 @@
 				"name": "Collapsible content"
 			}
 		}
+	},
+	"general": {
+		"header": "Header",
+		"footer": "Footer"
 	}
 }

@@ -1,0 +1,33 @@
+{%- assign color = color | default: 'white' -%}
+{%- assign size = size | default: 'md' -%}
+{%- assign with_arrow = with_arrow | default: false -%}
+{%- assign url = url | default: section.settings.about_url -%}
+{% assign type = type | default: 'solid' %}
+
+{% case type %}
+  {% when 'outline' %}
+    <a
+      href="{{ url }}"
+      class="el_btn el_btn_{{ color }} el_btn_outline el_btn_{{ size }}{% if with_arrow %} el_btn_widthArrow{% endif %}"
+    >
+      {{ label }}
+      {% if with_arrow %}
+        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor">
+          <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z"/>
+        </svg>
+      {% endif %}
+    </a>
+
+  {% else %}
+    <a
+      href="{{ url }}"
+      class="el_btn el_btn_{{ color }} el_btn_{{ size }}{% if with_arrow %} el_btn_widthArrow{% endif %}"
+    >
+      {{ label }}
+      {% if with_arrow %}
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+          <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z"/>
+        </svg>
+      {% endif %}
+    </a>
+{% endcase %}
