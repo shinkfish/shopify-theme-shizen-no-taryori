@@ -3,7 +3,7 @@
 	--breakpoint-custom: 90rem;
 
 	/* ===========================================
-	   SNOWPARK THEME COLORS
+	 color guide
 	   =========================================== */
 	--color-primary: #5b7832;
 	--color-on-primary: #fff;
@@ -38,6 +38,7 @@
    style
    =========================================== */
 	--shadow-custom: 0px 4px 3px -2px rgba(0, 0, 0, 0.3);
+	--text-xxs: 10px;
 }
 
 /* ===========================================

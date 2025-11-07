@@ -1,3 +1,8 @@
+header {
+	padding: 8px 16px;
+	background-color: #ffffff90;
+	backdrop-filter: blur(10px);
+}
 header a {
 	position: relative;
 	text-decoration: none;
@@ -25,6 +30,20 @@ header .header_icon {
 }
 header .header_icon:hover {
 	transform: scale(1.05);
+}
+
+.header-logo svg {
+	transition: all 0.3s ease;
+}
+.header-logo svg.el_brandLogo-scrolled {
+	width: 60px !important;
+	transition: all 0.3s ease;
+}
+@media screen and (min-width: 640px) {
+	.header-logo svg.el_brandLogo-scrolled {
+		width: 80px !important;
+		transition: all 0.3s ease;
+	}
 }
 
 /* メニュードロワー */

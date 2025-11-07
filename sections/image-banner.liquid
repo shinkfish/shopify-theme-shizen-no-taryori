@@ -26,7 +26,33 @@
     transform: translate(-50%, -50%);
   }
 {%- endstyle -%}
-<section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.querySelector('header');
+    const hero = document.querySelector('#hero');
+
+    if (!header || !hero) return;
+
+    function addHeaderMargin() {
+      const headerHeight = header.offsetHeight;
+      hero.style.paddingTop = headerHeight + 'px';
+    }
+
+    addHeaderMargin();
+
+    // リサイズ時にも更新
+    window.addEventListener('resize', addHeaderMargin, { passive: true });
+
+    // ResizeObserverでheaderのサイズ変更を監視
+    const observer = new ResizeObserver(function () {
+      addHeaderMargin();
+    });
+
+    observer.observe(header);
+  });
+</script>
+<section id="hero">
   <div class="image-banner-section">
     <div class="hero">
       <!-- メインスライダー -->

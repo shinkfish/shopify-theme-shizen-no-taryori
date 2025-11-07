@@ -1,13 +1,70 @@
 {{ 'base-header.css' | asset_url | stylesheet_tag }}
-<header class="fixed left-0 z-100 w-screen px-8 py-4">
-  <div class="wrapper w-full flex justify-between">
-    <h2 class="">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.querySelector('header');
+    const hero = document.querySelector('#hero');
+    const brandLogo = document.querySelector('header svg');
+
+    if (!header || !hero || !brandLogo) return;
+
+    let headerHeight = 0;
+    let heroHeight = 0;
+    let ticking = false;
+    const scrolledClass = 'el_brandLogo-scrolled';
+
+    function updateHeroHeight() {
+      heroHeight = hero.offsetHeight;
+    }
+    function updateHeaderHeight() {
+      headerHeight = header.offsetHeight / 3;
+    }
+
+    function updateBrandLogoSize() {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          const scrollY = window.scrollY;
+
+          if (scrollY >= headerHeight) {
+            // hero分スクロールしたら、el_brandLogo-scrolledクラスを追加
+            brandLogo.classList.add(scrolledClass);
+          } else {
+            // hero分スクロールしていない場合は、el_brandLogo-scrolledクラスを削除
+            brandLogo.classList.remove(scrolledClass);
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    updateHeaderHeight();
+    updateBrandLogoSize();
+
+    window.addEventListener('scroll', updateBrandLogoSize, { passive: true });
+    window.addEventListener('resize', function () {
+      updateHeaderHeight();
+      updateBrandLogoSize();
+    });
+
+    const observer = new ResizeObserver(function () {
+      updateHeaderHeight();
+      updateBrandLogoSize();
+    });
+
+    observer.observe(hero);
+  });
+</script>
+
+<header class="fixed left-0 z-100 w-screen bg-white-transparent">
+  <div class="wrapper w-full flex justify-between items-center">
+    <h2 class="header-logo w-[80px] md:w-[100px]">
       <a href="{{ routes.root_url }}">
-        <img src="{{ 'brandLogo_shizen-no-tayori.svg' | asset_url }}" width="150" height="150" alt="{{ shop.name }}">
+        {% render 'el_brandLogo' %}
       </a>
     </h2>
 
-    <div class="border-2 rounded-md bg-white h-fit p-4">
+    <div class="h-fit p-2 md:p-4">
       <!-- デスクトップメニューは削除または非表示 -->
 
       <div class="header_icons">
@@ -15,7 +72,7 @@
           <div class="header_icon">
             <a href="{{ routes.account_url }}" class="flex flex-col items-center">
               {{ 'icon-account.svg' | inline_asset_content }}
-              <p class="text-xs">マイページ</p>
+              <p class="text-xxs md:text-xs">マイページ</p>
             </a>
           </div>
         {% endif %}
@@ -27,7 +84,7 @@
             {% endif %}
 
             {{ 'icon-cart.svg' | inline_asset_content }}
-            <p class="text-xs">カート</p>
+            <p class="text-xxs md:text-xs">カート</p>
           </a>
         </div>
 
@@ -53,7 +110,7 @@
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-            <p class="text-xs">メニュー</p>
+            <p class="text-xxs md:text-xs">メニュー</p>
           </button>
         </div>
       </div>
