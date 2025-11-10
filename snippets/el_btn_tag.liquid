@@ -26,8 +26,9 @@
       href="{{ url }}"
       class="el_btn_tag{% if color != blank %} el_btn_{{ color }} {% endif %} el_btn_tag_outline"
     >
-      <div class="el_btn_tag_outline_mark w-6 h-full inline-block" {{ inline_style }}></div>
-      <p class="w-full justify-self-center px-1 py-2">{{ label }}</p>
+      <div class="el_btn_tag_outline_mark w-6 h-full block" {{ inline_style }}></div>
+
+      <p class="w-full justify-self-center px-1 py-2 whitespace-nowrap">{{ label }}</p>
     </a>
 
   {% else %}

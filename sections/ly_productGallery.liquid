@@ -2,7 +2,7 @@
   {% comment %} wrapper {% endcomment %}
   <div class="ly_cont ly_cont_section ">
     {% render 'bl_section-title', title: 'CATEGORY', sub_title: '商品カテゴリ', show_button: true %}
-    <div class="mt-6 md:mt-10 flex gap-2">
+    <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
       {% for category in section.settings.category_list %}
         {% render 'bl_gallery-badge', category: category %}
       {% endfor %}

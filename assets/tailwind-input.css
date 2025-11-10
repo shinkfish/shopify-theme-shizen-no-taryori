@@ -121,10 +121,10 @@
 
 /* el_btn_tag */
 .el_btn_tag {
-	@apply text-xs md:text-sm border-2 inline-block p-2 rounded  min-w-[120px] transition-colors text-center font-bold;
+	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold;
 }
 .el_btn_tag_outline {
-	@apply flex p-0 overflow-hidden
+	@apply flex p-0;
 }
 
 /* heading */
