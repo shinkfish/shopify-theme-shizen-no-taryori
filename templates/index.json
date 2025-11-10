@@ -82,7 +82,11 @@
 			},
 			"block_order": ["image_keEiWp", "image_pwR9q9", "image_MtebTf", "image_EPy6kg", "image_kBzmEh", "image_xgB64C", "image_ihxWgM"],
 			"settings": {}
+		},
+		"top-product-category":{
+			"type": "top-productGallery",
+			"settings":{}
 		}
 	},
-	"order": ["image_banner", "top-about"]
+	"order": ["image_banner", "top-about","top-product-category"]
 }

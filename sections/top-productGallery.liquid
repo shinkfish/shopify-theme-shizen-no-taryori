@@ -1,0 +1,55 @@
+<section>
+  {% comment %} wrapper {% endcomment %}
+  <div class="ly_cont ly_cont_section ">
+    {% render 'bl_section-title', title: 'CATEGORY', sub_title: '商品カテゴリ', show_button: true %}
+  </div>
+  {% comment %} /wrapper {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "about",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "url",
+      "id": "about_url",
+      "label": "リンク先URL",
+      "info": "ボタンのリンク先を指定します"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "画像",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "カードスライダー",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

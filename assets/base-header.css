@@ -1,7 +1,7 @@
 header {
 	padding: 8px 16px;
-	background-color: #ffffff90;
-	backdrop-filter: blur(10px);
+	background-color: #ffffff71;
+	backdrop-filter: blur(8px);
 }
 header a {
 	position: relative;

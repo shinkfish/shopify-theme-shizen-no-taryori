@@ -1,0 +1,15 @@
+{% assign title = title | default: 'section-title' %}
+{% assign sub_title = sub_title | default: 'section-sub_title' %}
+{% assign showButton = show_button | default: false %}
+
+<div class="flex justify-between border-b-2 pb-8">
+  <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-6 ">
+    <h2 class="el_head_lg">{{ title }}</h2>
+    <span class="el_head_xs">{{ sub_title }}</span>
+  </div>
+  {% if show_button != false %}
+    <div class="">
+      {% render 'el_button', type: 'outline', color: 'black', label: 'すべてみる', size: 'md', with_arrow: true %}
+    </div>
+  {% endif %}
+</div>
