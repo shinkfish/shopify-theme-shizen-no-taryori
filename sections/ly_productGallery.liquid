@@ -2,9 +2,9 @@
   {% comment %} wrapper {% endcomment %}
   <div class="ly_cont ly_cont_section ">
     {% render 'bl_section-title', title: 'CATEGORY', sub_title: '商品カテゴリ', show_button: true %}
-    <div class="">
+    <div class="mt-6 md:mt-10 flex gap-2">
       {% for category in section.settings.category_list %}
-        {% render 'gallery-badge', category: category %}
+        {% render 'bl_gallery-badge', category: category %}
       {% endfor %}
     </div>
   </div>
@@ -50,11 +50,7 @@
     {
       "name": "カテゴリーバッジ",
       "settings": {
-        "category_list": [
-          "gid://shopify/Metaobject/177947869207",
-          "gid://shopify/Metaobject/177948327959",
-          "gid://shopify/Metaobject/177948983319"
-        ]
+        "category_list": ["dryfood", "paste", "sweets"]
       },
       "blocks": [
         {

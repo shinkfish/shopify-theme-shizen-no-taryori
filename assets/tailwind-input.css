@@ -89,6 +89,7 @@
 .el_btn {
 	@apply inline-block p-3 rounded  min-w-[100px] sm:min-w-[200px] transition-colors text-center font-bold;
 }
+
 .el_btn_full {
 	@apply block px-4 py-3 rounded transition-colors text-center font-bold;
 }
@@ -116,6 +117,14 @@
 }
 .el_btn_widthArrow {
 	@apply relative flex justify-between items-center;
+}
+
+/* el_btn_tag */
+.el_btn_tag {
+	@apply text-xs md:text-sm border-2 inline-block p-2 rounded  min-w-[120px] transition-colors text-center font-bold;
+}
+.el_btn_tag_outline {
+	@apply flex p-0 overflow-hidden
 }
 
 /* heading */

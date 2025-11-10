@@ -1,0 +1,42 @@
+{% doc %}
+  Gallery Badge Component
+
+  Renders a category badge with link to collection using el_btn_tag.
+
+  @param {metaobject} category - Category metaobject (required)
+
+  @example
+  {% render 'bl_gallery-badge', category: category %}
+{% enddoc %}
+
+{% liquid
+  # Parameter validation
+  assign category = category | default: empty
+
+  unless category != empty
+    echo '<!-- Error: category parameter required for gallery-badge snippet -->'
+    break
+  endunless
+
+  # Get metaobject fields
+  assign category_name = category.category_name.value
+  assign category_color = category.category_color.value
+  assign category_collection = category.category_collection.value
+
+  # Get collection URL
+  if category_collection.url
+    assign collection_url = category_collection.url
+  else
+    assign collection_url = '#'
+  endif
+
+  # Calculate text color based on background brightness
+  assign bg_brightness = category_color | color_brightness
+  if bg_brightness > 128
+    assign text_color = '#000000'
+  else
+    assign text_color = '#ffffff'
+  endif
+%}
+
+{% render 'el_btn_tag', url: collection_url, label: category_name, bg_color: category_color, text_color: text_color,type:"outline" %}

@@ -1,0 +1,41 @@
+{%- assign color = color -%}
+{%- assign url = url | default: section.settings.about_url -%}
+{%- assign type = type | default: 'solid' -%}
+{%- assign bg_color = bg_color | default: '' -%}
+{%- assign text_color = text_color | default: '' -%}
+
+{% liquid
+  # Build inline style if custom colors are provided
+  if bg_color != blank or text_color != blank
+    assign inline_style = 'style="'
+    if bg_color != blank
+      assign inline_style = inline_style | append: 'background-color: ' | append: bg_color | append: ';'
+    endif
+    if text_color != blank
+      assign inline_style = inline_style | append: ' color: ' | append: text_color | append: ';'
+    endif
+    assign inline_style = inline_style | append: '"'
+  else
+    assign inline_style = ''
+  endif
+%}
+
+{% case type %}
+  {% when 'outline' %}
+    <a
+      href="{{ url }}"
+      class="el_btn_tag{% if color != blank %} el_btn_{{ color }} {% endif %} el_btn_tag_outline"
+    >
+      <div class="el_btn_tag_outline_mark w-6 h-full inline-block" {{ inline_style }}></div>
+      <p class="w-full justify-self-center px-1 py-2">{{ label }}</p>
+    </a>
+
+  {% else %}
+    <a
+      href="{{ url }}"
+      class="el_btn_tag {% if color != blank %} el_btn_{{ color }} {% endif %}"
+      {{ inline_style }}
+    >
+      <p class="w-full justify-self-center">{{ label }}</p>
+    </a>
+{% endcase %}
