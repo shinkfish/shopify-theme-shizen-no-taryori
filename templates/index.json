@@ -99,10 +99,12 @@
     },
     "top-product-category": {
       "type": "ly_productGallery",
+      "name": "ていばん商品",
       "settings": {
         "title": "STANDARD",
         "sub_title": "ていばん商品",
         "show_button": true,
+        "button_text": "すべてみる",
         "category_list": [
           "dryfood",
           "paste",
@@ -114,11 +116,12 @@
     },
     "ly_product_gallery_pncGLz": {
       "type": "ly_productGallery",
-      "name": "商品スライダー",
+      "name": "おすすめ商品",
       "settings": {
         "title": "RECOMMENDS",
         "sub_title": "おすすめ商品",
         "show_button": true,
+        "button_text": "すべてみる",
         "category_list": [],
         "collection": "recommends",
         "button_url": "shopify://collections/recommends"
