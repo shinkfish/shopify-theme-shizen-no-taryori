@@ -7,6 +7,11 @@
         {% render 'bl_gallery-badge', category: category %}
       {% endfor %}
     </div>
+    <div class="">
+      {% for product in section.settings.collection %}
+        <p>{{ product.title }}</p>
+      {% endfor %}
+    </div>
   </div>
   {% comment %} /wrapper {% endcomment %}
 </section>
@@ -25,6 +30,11 @@
       "id": "category_list",
       "label": "カテゴリリスト",
       "metaobject_type": "category"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "表示するコレクションを選択"
     },
     {
       "type": "url",

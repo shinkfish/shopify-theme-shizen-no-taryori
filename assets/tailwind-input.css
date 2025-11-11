@@ -87,7 +87,7 @@
    =========================================== */
 /* button */
 .el_btn {
-	@apply inline-block p-3 rounded  min-w-[100px] sm:min-w-[200px] transition-colors text-center font-bold;
+	@apply inline-block p-3 rounded  min-w-[100px] sm:min-w-[200px] transition-colors text-center font-bold border-2;
 }
 
 .el_btn_full {
@@ -121,7 +121,7 @@
 
 /* el_btn_tag */
 .el_btn_tag {
-	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold;
+	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold overflow-hidden;
 }
 .el_btn_tag_outline {
 	@apply flex p-0;
