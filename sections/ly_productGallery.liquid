@@ -5,7 +5,11 @@
 <section>
   {% comment %} wrapper {% endcomment %}
   <div class="ly_cont ly_cont_section ">
-    {% render 'bl_section-title', title: 'CATEGORY', sub_title: '商品カテゴリ', show_button: true %}
+    {% render 'bl_section-title',
+      title: section.settings.title,
+      sub_title: section.settings.sub_title,
+      show_button: section.settings.show_button
+    %}
     <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
       {% for category in section.settings.category_list %}
         {% render 'bl_collection-badge', category: category %}
@@ -44,6 +48,22 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "サブタイトル"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "ボタン表示",
+      "default": true
+    },
     {
       "type": "metaobject_list",
       "id": "category_list",
