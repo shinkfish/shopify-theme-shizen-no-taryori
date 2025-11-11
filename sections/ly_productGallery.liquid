@@ -1,16 +1,43 @@
+{% liquid
+  assign selected_collection = collections[section.settings.collection] | default: collections.all
+%}
+
 <section>
   {% comment %} wrapper {% endcomment %}
   <div class="ly_cont ly_cont_section ">
     {% render 'bl_section-title', title: 'CATEGORY', sub_title: '商品カテゴリ', show_button: true %}
     <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
       {% for category in section.settings.category_list %}
-        {% render 'bl_gallery-badge', category: category %}
+        {% render 'bl_collection-badge', category: category %}
       {% endfor %}
     </div>
-    <div class="">
-      {% for product in section.settings.collection %}
-        <p>{{ product.title }}</p>
-      {% endfor %}
+    {% comment %} swiper {% endcomment %}
+    <div class="ly_cont_block_sm">
+      <div class="bl_swiper">
+        <div
+          class="swiper"
+          data-swiperSlidePC="4"
+          data-swiperSlideSP="1.5"
+        >
+          <div class="swiper-wrapper">
+            {% for product in selected_collection.products %}
+              <div class="swiper-slide h-full">
+                {% render 'bl_card_product', product: product %}
+              </div>
+            {% endfor %}
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+      {% comment %} /swiper {% endcomment %}
     </div>
   </div>
   {% comment %} /wrapper {% endcomment %}
@@ -38,7 +65,7 @@
     },
     {
       "type": "url",
-      "id": "about_url",
+      "id": "button_url",
       "label": "リンク先URL",
       "info": "ボタンのリンク先を指定します"
     }

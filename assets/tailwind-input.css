@@ -3,7 +3,7 @@
 	--breakpoint-custom: 90rem;
 
 	/* ===========================================
-	 color guide
+	color guide
 	   =========================================== */
 	--color-primary: #5b7832;
 	--color-on-primary: #fff;
@@ -35,7 +35,7 @@
 
 	--color-white-transparent: rgba(255, 255, 255, 0.9);
 	/* ===========================================
-   style
+	style
    =========================================== */
 	--shadow-custom: 0px 4px 3px -2px rgba(0, 0, 0, 0.3);
 	--text-xxs: 10px;
@@ -57,6 +57,10 @@
 }
 .ly_cont_section_bg {
 	@apply pt-30 px-4;
+}
+
+.ly_cont_block_sm {
+	@apply mt-6;
 }
 
 .ly_cont_block {
@@ -82,6 +86,16 @@
 	@apply mt-20 lg:mt-40 mb-10;
 }
 
+/* ===========================================
+	Block
+   =========================================== */
+/* bl_card_product */
+.bl_card_product {
+}
+
+.bl_card_body {
+	@apply px-2 py-4;
+}
 /* ===========================================
 	Element
    =========================================== */
@@ -121,7 +135,11 @@
 
 /* el_btn_tag */
 .el_btn_tag {
-	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold overflow-hidden;
+	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold overflow-hidden block w-fit;
+}
+
+.el_btn_tag_sm {
+	@apply text-xs py-1;
 }
 .el_btn_tag_outline {
 	@apply flex p-0;
@@ -129,13 +147,13 @@
 
 /* heading */
 .el_head_xs {
-	@apply text-xs md:text-base font-extrabold;
+	@apply text-xs md:text-sm font-bold;
 }
 .el_head_sm {
-	@apply text-sm md:text-base font-extrabold;
+	@apply text-sm md:text-base font-bold;
 }
 .el_head_md {
-	@apply text-lg md:text-xl font-bold;
+	@apply text-lg md:text-2xl font-bold;
 }
 .el_head_lg {
 	@apply text-3xl md:text-5xl font-bold;
@@ -152,6 +170,12 @@
 	@apply font-bold rounded-sm p-1 w-full min-w-[100px] text-center;
 }
 
+/* ===========================================
+	helper
+   =========================================== */
+.hl_border-set_default {
+	@apply border-2 rounded-sm;
+}
 /* ===========================================
 	Unique
    =========================================== */

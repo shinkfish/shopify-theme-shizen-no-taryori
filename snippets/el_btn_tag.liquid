@@ -1,8 +1,9 @@
 {%- assign color = color -%}
-{%- assign url = url | default: section.settings.about_url -%}
+{%- assign url = url | default: section.settings.button_url -%}
 {%- assign type = type | default: 'solid' -%}
 {%- assign bg_color = bg_color | default: '' -%}
 {%- assign text_color = text_color | default: '' -%}
+{%- assign size = size -%}
 
 {% liquid
   # Build inline style if custom colors are provided
@@ -24,7 +25,12 @@
   {% when 'outline' %}
     <a
       href="{{ url }}"
-      class="el_btn_tag{% if color != blank %} el_btn_{{ color }} {% endif %} el_btn_tag_outline"
+      class="
+        el_btn_tag
+        {% if color != blank %} el_btn_{{ color }}{% endif %}
+        {% if size != blank %} el_btn_tag_{{ size }} {% endif %}
+        el_btn_tag_outline
+      "
     >
       <div class="el_btn_tag_outline_mark w-6 h-full block" {{ inline_style }}></div>
 
@@ -34,7 +40,11 @@
   {% else %}
     <a
       href="{{ url }}"
-      class="el_btn_tag {% if color != blank %} el_btn_{{ color }} {% endif %}"
+      class="
+        el_btn_tag
+        {% if color != blank %} el_btn_{{ color }}{% endif %}
+        {% if size != blank %} el_btn_tag_{{ size }}{% endif %}
+      "
       {{ inline_style }}
     >
       <p class="w-full justify-self-center">{{ label }}</p>

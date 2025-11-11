@@ -94,7 +94,7 @@
         "image_ihxWgM"
       ],
       "settings": {
-        "about_url": ""
+        "button_url": ""
       }
     },
     "top-product-category": {
@@ -106,7 +106,7 @@
           "sweets"
         ],
         "collection": "all",
-        "about_url": "shopify://collections/all"
+        "button_url": "shopify://collections/all"
       }
     }
   },

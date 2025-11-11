@@ -223,7 +223,8 @@
 			"show_more": "さらに表示する",
 			"show_less": "表示を減らす",
 			"filter_and_operator_subtitle": "すべて一致"
-		}
+		},
+		"tax_included": " (税込) "
 	},
 	"templates": {
 		"search": {

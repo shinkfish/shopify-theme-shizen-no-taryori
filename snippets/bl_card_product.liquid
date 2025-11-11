@@ -1,0 +1,50 @@
+{% liquid
+  assign product = product | default: blank
+
+  unless product != blank
+    echo '<!-- Error: product parameter required -->'
+    break
+  endunless
+
+  assign image_width = 400
+  assign image_height = image_width | divided_by: product.featured_image.aspect_ratio | round
+%}
+
+<article class="bl_card_product hl_border-set_default">
+  <a href="{{ product.url }}">
+    <div class="aspect-square overflow-hidden">
+      {% if product.featured_image %}
+        <img
+          src="{{ product.featured_image | image_url: width: 400 }}"
+          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+          width="400"
+          height="{{ image_height }}"
+          loading="lazy"
+          class="w-auto h-full object-cover"
+        >
+      {% endif %}
+    </div>
+    <div class="bl_card_body block">
+      {% comment %} タグ/カテゴリー表示 {% endcomment %}
+      {% if product.metafields.custom.product_category != blank %}
+        {% render 'bl_collection-badge',
+          category: product.metafields.custom.product_category.value,
+          tag_type: 'solid',
+          tag_size: 'sm'
+        %}
+      {% endif %}
+
+      <h3 class="product-title el_head_md mt-2">{{ product.title }}</h3>
+      <div class="bl_card_price mt-2">
+        <p class="inline-block el_head_md">{{ product.price | money_with_currency }}</p>
+        <p class="inline-block el_head_xs">{{ 'products.tax_included' | t }}</p>
+      </div>
+
+      {% if product.metafields.custom.product_subtitle != blank %}
+        <div class="bl_card_subtitle mt-4 text-sm font-bold">
+          {{ product.metafields.custom.product_subtitle }}
+        </div>
+      {% endif %}
+    </div>
+  </a>
+</article>

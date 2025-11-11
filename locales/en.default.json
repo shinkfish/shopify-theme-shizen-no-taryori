@@ -222,7 +222,8 @@
 			"sort_by_label": "Sort by:",
 			"to": "To",
 			"clear_filter": "Remove filter"
-		}
+		},
+		"tax_included": "(Tax included)"
 	},
 	"templates": {
 		"search": {

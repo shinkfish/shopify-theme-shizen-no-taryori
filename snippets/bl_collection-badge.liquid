@@ -4,9 +4,12 @@
   Renders a category badge with link to collection using el_btn_tag.
 
   @param {metaobject} category - Category metaobject (required)
+  @param {string} tag_type - Tag type: 'solid' or 'outline' (default: 'outline')
+  @param {string} tag_size - Tag size: 'sm' (default: empty)
 
   @example
   {% render 'bl_gallery-badge', category: category %}
+  {% render 'bl_gallery-badge', category: category, tag_type: 'solid' %}
 {% enddoc %}
 
 {% liquid
@@ -22,6 +25,8 @@
   assign category_name = category.category_name.value
   assign category_color = category.category_color.value
   assign category_collection = category.category_collection.value
+  assign tag_type = tag_type | default: 'outline'
+  assign tag_size = tag_size
 
   # Get collection URL
   if category_collection.url
@@ -39,4 +44,11 @@
   endif
 %}
 
-{% render 'el_btn_tag', url: collection_url, label: category_name, bg_color: category_color, text_color: text_color,type:"outline" %}
+{% render 'el_btn_tag',
+  url: collection_url,
+  label: category_name,
+  bg_color: category_color,
+  text_color: text_color,
+  type: tag_type,
+  size: tag_size
+%}
