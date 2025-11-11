@@ -27,7 +27,7 @@
     <div class="bl_card_body block">
       {% comment %} タグ/カテゴリー表示 {% endcomment %}
       {% if product.metafields.custom.product_category != blank %}
-        {% render 'bl_collection-badge',
+        {% render 'bl_collection_badge',
           category: product.metafields.custom.product_category.value,
           tag_type: 'solid',
           tag_size: 'sm'

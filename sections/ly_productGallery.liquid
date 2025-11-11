@@ -8,11 +8,12 @@
     {% render 'bl_section-title',
       title: section.settings.title,
       sub_title: section.settings.sub_title,
-      show_button: section.settings.show_button
+      show_button: section.settings.show_button,
+      button_text: section.settings.button_text
     %}
     <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
       {% for category in section.settings.category_list %}
-        {% render 'bl_collection-badge', category: category %}
+        {% render 'bl_collection_badge', category: category %}
       {% endfor %}
     </div>
     {% comment %} swiper {% endcomment %}
@@ -63,6 +64,11 @@
       "id": "show_button",
       "label": "ボタン表示",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "ボタンテキスト"
     },
     {
       "type": "metaobject_list",
