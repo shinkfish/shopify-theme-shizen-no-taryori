@@ -53,15 +53,19 @@
 /* ナビゲーションボタンの基本スタイル */
 .swiper-button-prev,
 .swiper-button-next {
-	border: 2.5px solid var(--color-black);
-	width: 45px !important;
-	height: 45px !important;
-	border-radius: 50% !important;
-	box-shadow: 0px 6px 6px -2px rgba(0, 0, 0, 0.7);
-	fill: var(--color-black); /* SVGの色をfillプロパティで制御 */
+	border: 2px solid var(--color-black);
+	width: 40px !important;
+	height: 40px !important;
+	min-width: 40px !important;
+	min-height: 40px !important;
+	max-width: 40px !important;
+	max-height: 40px !important;
+	border-radius: 4px;
 	transition: all 0.3s ease; /* ホバー時のスムーズな色変更 */
 	bottom: 0 !important;
 	background-color: #ffffffcf;
+	flex-shrink: 0 !important;
+	padding: 0 !important;
 }
 
 .swiper-button-next::after,
@@ -69,42 +73,49 @@
 	display: none;
 }
 
-.swiper-button-prev svg,
-.swiper-button-next svg {
-	width: 18px !important;
-	height: auto;
-	fill: var(--color-black);
-	position: absolute;
-	left: 50%;
-	transform-origin: center;
-}
-.swiper-button-prev svg {
-	transform: translateX(-55%);
-}
-.swiper-button-next svg {
-	transform: translateX(-45%);
-}
-
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
 	transition: all 0.3s ease; /* ホバー時のスムーズな色変更 */
-	width: 52px !important;
-	height: 52px !important;
 	background-color: var(--color-black);
 	transform-origin: center;
 }
-.swiper-button-prev:hover svg,
-.swiper-button-next:hover svg {
-	fill: #fff !important;
-	stroke: #fff;
+.swiper-button-prev:hover svg path,
+.swiper-button-next:hover svg path {
+	stroke: #fff !important;
 }
 
 /* =================================== */
 /* pagination */
 /* =================================== */
 
-.swiper-pagination-bullet {
-	background: #000;
+.swiper-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* 現在のスライド番号 */
+.swiper-pagination-current {
+	color: var(--color-black);
+}
+
+/* スライド総数 */
+.swiper-pagination-total {
+	color: var(--color-black);
+}
+
+/* セパレーター（横棒） */
+.swiper-pagination-separator {
+	display: inline-block;
+	width: 10%;
+	min-width: 80px;
+	height: 2px;
+	background-color: var(--color-black);
+	border-radius: 4px;
+	margin: 0 4px;
 }
 
 .swiper_outerScroll.swiper-wrapper {
@@ -112,20 +123,6 @@
 }
 .swiper_outerScroll .swiper-pagination {
 	bottom: 0;
-}
-
-.swiper-pagination .swiper-pagination-bullet {
-	background-color: #fff;
-	opacity: 0.6;
-	border-radius: 4px;
-	transition: all 0.3s ease;
-}
-.swiper-pagination .swiper-pagination-bullet-active {
-	background-color: var(--color-snowpark-accent-1);
-	opacity: 1;
-	width: 30px;
-	border-radius: 4px;
-	transition: all 0.3s ease;
 }
 
 /* =================================== */

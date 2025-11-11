@@ -1,0 +1,28 @@
+{% doc %}
+  Swiper Controls Component
+
+  Renders swiper navigation controls with fraction pagination.
+
+  @example
+  {% render 'bl_swiper_controls' %}
+{% enddoc %}
+
+<div class="swiper-controls flex items-center justify-center gap-4 mt-6 pt-6 relative">
+  <!-- Pagination (fraction) -->
+
+  <!-- Previous button -->
+  <button class="swiper-button-prev border-2 border-black rounded flex items-center justify-center after:content-none !relative">
+    <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 15L7.5 10L12.5 5" stroke="#000" stroke-width="1.3"/>
+    </svg>
+  </button>
+
+  <div class="swiper-pagination !relative text-base"></div>
+
+  <!-- Next button -->
+  <button class="swiper-button-next border-2 border-black rounded flex items-center justify-center after:content-none !relative">
+    <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.5 15L12.5 10L7.5 5" stroke="#000" stroke-width="1.3"/>
+    </svg>
+  </button>
+</div>

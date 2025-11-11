@@ -1,38 +1,5 @@
 // Swiper JavaScript
 document.addEventListener("DOMContentLoaded", function () {
-	// SVGアイコンの定義
-	const arrowSVG_prev = `
-		<svg id="_レイヤー_1" data-name="レイヤー_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
-  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
-  <path d="M16.1125001,22.4522497L5.66025,11.9999996,16.1125001,1.5477503l2.2272499,2.2272492-8.2250001,8.2250001,8.2250001,8.2250001s-2.2272499,2.2272499-2.2272499,2.22725Z"/>
-</svg>
-	`;
-	const arrowSVG_next = `
-		<?xml version="1.0" encoding="UTF-8"?>
-<svg id="_レイヤー_1" data-name="レイヤー_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
-  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
-  <path d="M7.8874996,22.4522505l-2.2272499-2.22725,8.2250009-8.2250001L5.6602504,3.7750002l2.2272492-2.2272507,10.4522508,10.4522508-10.4522508,10.4522502Z"/>
-</svg>
-	`;
-
-	// カスタムナビゲーションボタンを作成する関数
-	function createCustomNavButtons(container) {
-		// 新しいボタンを作成
-		const nextButton = document.createElement("div");
-		nextButton.className = "swiper-button-next swiper-nav-custom";
-		nextButton.innerHTML = arrowSVG_next;
-
-		const prevButton = document.createElement("div");
-		prevButton.className = "swiper-button-prev swiper-nav-custom";
-		prevButton.innerHTML = arrowSVG_prev;
-
-		// コンテナに追加
-		container.appendChild(nextButton);
-		container.appendChild(prevButton);
-
-		return { nextButton, prevButton };
-	}
-
 	// image-banner.liquid用のSwiper初期化
 	if (document.querySelector(".swiper-main .swiper")) {
 		// メインスライダーの初期化
@@ -59,17 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		const swiperId = `swiper-${index + 1}`;
 		container.id = swiperId;
 
-		// ナビゲーションボタンの表示設定を取得
-		const showNavigationAttr = container.getAttribute("data-swiperShowNavigation");
-		const showNavigation = showNavigationAttr !== "false"; // デフォルトは true
-
-		// カスタムナビゲーションボタンを作成（表示する場合のみ）
-		let nextButton, prevButton;
-		if (showNavigation) {
-			const navButtons = createCustomNavButtons(container.parentElement);
-			nextButton = navButtons.nextButton;
-			prevButton = navButtons.prevButton;
-		}
+		// ナビゲーションボタンを取得（bl_swiper_controls.liquidでレンダリングされたもの）
+		const nextButton = container.querySelector(".swiper-button-next");
+		const prevButton = container.querySelector(".swiper-button-prev");
 
 		const slidePerViewPCAttr = container.getAttribute("data-swiperSlidePC");
 		const slidePerViewSPAttr = container.getAttribute("data-swiperSlideSP");
@@ -132,15 +91,30 @@ document.addEventListener("DOMContentLoaded", function () {
 					slidesPerView: slidePerViewPC,
 					spaceBetween: spaceBetweenPC
 				}
-			},
-			pagination: {
-				el: `#${swiperId} .swiper-pagination`,
-				clickable: true
 			}
 		};
 
-		// ナビゲーション設定（表示する場合のみ）
-		if (showNavigation && nextButton && prevButton) {
+		// Pagination設定（要素が存在する場合のみ）
+		const paginationEl = container.querySelector(".swiper-pagination");
+		if (paginationEl) {
+			swiperConfig.pagination = {
+				el: paginationEl,
+				type: "fraction",
+				clickable: true,
+				formatFractionCurrent: function (number) {
+					return number < 10 ? "0" + number : number;
+				},
+				formatFractionTotal: function (number) {
+					return number < 10 ? "0" + number : number;
+				},
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="text-base ' + currentClass + '"></span>' + '<span class="swiper-pagination-separator"></span>' + '<span class="text-base ' + totalClass + '"></span>';
+				}
+			};
+		}
+
+		// ナビゲーション設定（ボタンが存在する場合のみ）
+		if (nextButton && prevButton) {
 			swiperConfig.navigation = {
 				nextEl: nextButton,
 				prevEl: prevButton
@@ -201,9 +175,12 @@ document.addEventListener("DOMContentLoaded", function () {
 					}
 				},
 				watchSlidesProgress: true,
+				pagination: {
+					el: ".swiper-pagination"
+				},
 				navigation: {
-					nextEl: ".swiper-thumbnails .swiper-button-next",
-					prevEl: ".swiper-thumbnails .swiper-button-prev"
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev"
 				},
 				loop: false,
 				allowTouchMove: true,
