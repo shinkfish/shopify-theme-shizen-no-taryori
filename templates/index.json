@@ -108,11 +108,44 @@
         "collection": "all",
         "button_url": "shopify://collections/all"
       }
+    },
+    "ly_product_gallery_U4kjn4": {
+      "type": "ly_productGallery",
+      "blocks": {
+        "image_VVjEgW": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_rjNYdC": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_N4HhrE": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_VVjEgW",
+        "image_rjNYdC",
+        "image_N4HhrE"
+      ],
+      "name": "カテゴリーバッジ",
+      "settings": {
+        "category_list": [
+          "dryfood",
+          "paste",
+          "sweets"
+        ],
+        "collection": "",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "image_banner",
     "top-about",
-    "top-product-category"
+    "top-product-category",
+    "ly_product_gallery_U4kjn4"
   ]
 }
