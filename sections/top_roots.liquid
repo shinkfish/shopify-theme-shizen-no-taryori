@@ -1,53 +1,70 @@
 <section>
   {% comment %} wrapper {% endcomment %}
   <div class="ly_cont ly_cont_section">
-    <div class="flex flex-col md:flex-row">
+    <div class="grid grid-cols-1 lg:grid-cols-6 gap-12 lg:gap-0">
       {% comment %} heading {% endcomment %}
-      <div class="un_roots_heading flex flex-col gap-6">
-        <div class="un_roots_title bg-tertiary-variant text-on-tertiary-variant md:w-fit px-4 md:px-6 py-4">
+      <div class="un_roots_heading w-full lg:col-span-1 flex flex-col gap-6">
+        <div class="un_roots_title bg-tertiary-variant text-on-tertiary-variant  px-2 md:px-2 py-4 flex md:flex-col items-center md:items-start justify-between">
           <h2 class="el_head_xl">Roots</h2>
-          <p class="mt-4 el_head_sm">
+          <p class="md:mt-4 text-right md:text-left el_head_sm">
             故郷の畑で収穫した恵み。<br>
             素材から伝わる想い
           </p>
         </div>
         <div class="un_roots_sub_title">
-          <div class="el_head_md">
+          <div class="text-2xl font-bold">
             日常に馴染む<br>
             すなおな美味しさ
           </div>
-          <p class="mt-2 el_head_xs">
+          <p class="mt-2 text-base font-bold md:pr-2">
             丁寧なものづくりによる、美味しさがあります。 仕事中に小腹が空いたときに。 お子様のおやつなどご家庭用に。
           </p>
         </div>
       </div>
       {% comment %} /heading {% endcomment %}
       {% comment %} swiper {% endcomment %}
-      <div
-        class="swiper"
-        data-swiperSlidePC="1"
-        data-swiperSlideSP="1"
-        data-swiperShowNavigation="true"
-      >
-        <div class="swiper-wrapper">
-          <!-- 追加の画像ブロック -->
-          {%- for block in section.blocks -%}
-            {%- if block.settings.image != blank -%}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <img
-                  src="{{ block.settings.image | image_url: width: 1200 }}"
-                  alt="{{ block.settings.image.alt | escape }}"
-                  width="{{ block.settings.image.width }}"
-                  height="{{ block.settings.image.height }}"
-                  loading="lazy"
-                  style="object-fit: cover;"
-                >
-              </div>
-            {% endif %}
-          {%- endfor -%}
+      <div class="lg:col-span-5">
+        <div
+          class="swiper"
+          data-swiperSlidePC="1"
+          data-swiperSlideSP="1"
+          data-swiperShowNavigation="true"
+        >
+          <div class="swiper-wrapper">
+            <!-- 追加の画像ブロック -->
+            {%- for block in section.blocks -%}
+              {%- if block.settings.image != blank -%}
+                <div class="swiper-slide relative" {{ block.shopify_attributes }}>
+                  <div class=" ">
+                    <img
+                      src="{{ block.settings.image | image_url: width: 1200 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                      class="aspect-4/3"
+                    >
+                  </div>
+
+                  <div class="swiper-body un_swipe_body_roots">
+                    <div class="el_head_lg md:text-right">
+                      {{ block.settings.title }}
+                    </div>
+                    <div class="font-bold mt-4">
+                      <p>
+                        {{ block.settings.description }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {%- endfor -%}
+          </div>
+          {% render 'bl_swiper_controls' %}
         </div>
+        {% comment %} /swiper {% endcomment %}
       </div>
-      {% comment %} /swiper {% endcomment %}
     </div>
     {% comment %} /.flex {% endcomment %}
   </div>
@@ -64,13 +81,25 @@
   },
   "blocks": [
     {
-      "type": "image",
-      "name": "画像",
+      "type": "slide",
+      "name": "スライド",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
           "label": "画像"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タイトル",
+          "default": "地元野菜をふんだんに使いました"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "説明文",
+          "default": "私たちの商品は..."
         }
       ]
     }
@@ -80,13 +109,13 @@
       "name": "スライダーコンテンツ",
       "blocks": [
         {
-          "type": "image"
+          "type": "slide"
         },
         {
-          "type": "image"
+          "type": "slide"
         },
         {
-          "type": "image"
+          "type": "slide"
         }
       ]
     }

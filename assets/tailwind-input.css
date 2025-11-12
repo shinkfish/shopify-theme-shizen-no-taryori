@@ -214,3 +214,10 @@
 	margin-inline-end: 0.2rem;
 	vertical-align: baseline;
 }
+
+/* swiper
+=========================================== */
+
+.un_swipe_body_roots {
+	@apply bg-white-transparent h-auto! md:absolute md:right-0 md:bottom-0 md:max-w-[600px] mt-10 md:mt-0 md:p-4;
+}
