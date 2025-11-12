@@ -61,28 +61,24 @@
           class="swiper"
           data-swiperSlidePC="1"
           data-swiperSlideSP="1"
-          data-swiperShowNavigation="true"
         >
           <div class="swiper-wrapper">
             <!-- 追加の画像ブロック -->
             {%- for block in section.blocks -%}
-              {%- case block.type -%}
-                {%- when 'image' -%}
-                  {%- if block.settings.image != blank -%}
-                    <div class="swiper-slide" {{ block.shopify_attributes }}>
-                      <img
-                        src="{{ block.settings.image | image_url: width: 1200 }}"
-                        alt="{{ block.settings.image.alt | escape }}"
-                        width="{{ block.settings.image.width }}"
-                        height="{{ block.settings.image.height }}"
-                        loading="lazy"
-                        style="object-fit: cover;"
-                      >
-                    </div>
-                  {% else %}
-                    <div class="swiper-slide" {{ block.shopify_attributes }}></div>
-                  {%- endif -%}
-              {%- endcase -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <img
+                      src="{{ block.settings.image | image_url: width: 1200 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="lazy"
+                      style="object-fit: cover;"
+                    >
+                  </div>
+                {% else %}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}></div>
+                {%- endif -%}
             {%- endfor -%}
           </div>
         </div>
@@ -93,7 +89,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-banner.name",
+  "name": "メインバナー",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -114,7 +110,7 @@
   ],
   "presets": [
     {
-      "name": "カードスライダー",
+      "name": "メインバナー",
       "blocks": [
         {
           "type": "image"

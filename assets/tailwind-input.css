@@ -5,33 +5,38 @@
 	/* ===========================================
 	color guide
 	   =========================================== */
+	/* primary */
+	/* ============ */
 	--color-primary: #5b7832;
 	--color-on-primary: #fff;
-	--color-primary-bg: #c3f2c0;
+	/* variants */
+	--color-primary-variant: #d3e4b5;
+	--color-on-primary-variant: #1c2d00;
+	/* primary_hover */
 	--color-hover-primary: #40ec3a;
-
-	--color-primary-variant: #34a230;
 	--color-hover-primary-variant: #53a950;
-	--color-on-primary-variant: #ffffff;
 
-	--color-secondary: #4998f7;
-	--color-secondary-bg: #bfe0fe;
-	--color-secondary-variant: #3b80cf;
+	/* secondary */
+	/* ============ */
+	--color-secondary: #8aa17c;
 	--color-on-secondary: #ffffff;
-	--color-on-secondary-variant: #ffffff;
+	/* variants */
+	--color-secondary-variant: #ddead1;
+	--color-on-secondary-variant: #1c2d00;
 
+	/* tertiary */
+	/* ============ */
+	--color-tertiary: #db5346;
+	--color-tertiary-variant: #f0ac9f;
+	--color-on-tertiary: #ffffff;
+	--color-on-tertiary-variant: #410100;
+
+	/* other */
+	/* ============ */
 	--color-accent-1: #ffd93f;
 	--color-accent-2: #50e3c2;
 	--color-on-accent-1: #0d0d0d;
 	--color-on-accent-2: #0d0d0d;
-
-	--color-navy: #2b70ca;
-	--color-on-navy: #ffffff;
-	--color-red: #cb3260;
-	--color-on-red: #ffffff;
-	--color-pink: #fc5787;
-	--color-pink-bg: #ffccda;
-	--color-on-pink: #0d0d0d;
 
 	--color-white-transparent: rgba(255, 255, 255, 0.9);
 	/* ===========================================
@@ -89,9 +94,6 @@
 /* ===========================================
 	Block
    =========================================== */
-/* bl_card_product */
-.bl_card_product {
-}
 
 .bl_card_body {
 	@apply px-2 py-4;

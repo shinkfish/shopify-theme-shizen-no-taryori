@@ -1,0 +1,95 @@
+<section>
+  {% comment %} wrapper {% endcomment %}
+  <div class="ly_cont ly_cont_section">
+    <div class="flex">
+      {% comment %} heading {% endcomment %}
+      <div class="un_roots_heading">
+        <div class="un_roots_title bg-tertiary-variant text-on-tertiary-variant ">
+          <h2>Roots</h2>
+          <p>
+            故郷の畑で収穫した恵み。<br>
+            素材から伝わる想い
+          </p>
+        </div>
+        <div class="un_roots_sub_title">
+          <div class="el_heading_md">
+            日常に馴染む<br>
+            すなおな美味しさ
+          </div>
+          <p>
+            丁寧なものづくりによる、美味しさがあります。 仕事中に小腹が空いたときに。 お子様のおやつなどご家庭用に。
+          </p>
+        </div>
+      </div>
+      {% comment %} /heading {% endcomment %}
+      {% comment %} swiper {% endcomment %}
+      <div
+        class="swiper"
+        data-swiperSlidePC="1"
+        data-swiperSlideSP="1"
+        data-swiperShowNavigation="true"
+      >
+        <div class="swiper-wrapper">
+          <!-- 追加の画像ブロック -->
+          {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <img
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  loading="lazy"
+                  style="object-fit: cover;"
+                >
+              </div>
+            {% endif %}
+          {%- endfor -%}
+        </div>
+      </div>
+      {% comment %} /swiper {% endcomment %}
+    </div>
+    {% comment %} /.flex {% endcomment %}
+  </div>
+  {% comment %} /.ly_cont {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "ルーツ・こだわり",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "name": "画像",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "スライダーコンテンツ",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
