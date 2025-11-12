@@ -8,115 +8,161 @@
  * ------------------------------------------------------------
  */
 {
-	"sections": {
-		"image_banner": {
-			"type": "image-banner",
-			"blocks": {
-				"image_GNxKtW": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
-					}
-				},
-				"image_XcHwaR": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				},
-				"image_pFgc8R": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				}
-			},
-			"block_order": ["image_GNxKtW", "image_XcHwaR", "image_pFgc8R"],
-			"settings": {}
-		},
-		"top-about": {
-			"type": "top_about",
-			"blocks": {
-				"image_keEiWp": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
-					}
-				},
-				"image_pwR9q9": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				},
-				"image_MtebTf": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/692738e563c31e0fa26dfff2c4ab78fe.jpg"
-					}
-				},
-				"image_EPy6kg": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/cf880f7f0edb1aabb379db755b35ac21.jpg"
-					}
-				},
-				"image_kBzmEh": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/kids-beanie.jpg"
-					}
-				},
-				"image_xgB64C": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
-					}
-				},
-				"image_ihxWgM": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/fashion-model-walks-down-city-street.jpg"
-					}
-				}
-			},
-			"block_order": ["image_keEiWp", "image_pwR9q9", "image_MtebTf", "image_EPy6kg", "image_kBzmEh", "image_xgB64C", "image_ihxWgM"],
-			"settings": {
-				"button_url": ""
-			}
-		},
-		"top-product-category": {
-			"type": "ly_productGallery",
-			"name": "ていばん商品",
-			"settings": {
-				"title": "STANDARD",
-				"sub_title": "ていばん商品",
-				"show_button": true,
-				"button_text": "すべてみる",
-				"category_list": ["dryfood", "paste", "sweets"],
-				"collection": "all",
-				"button_url": "shopify://collections/all"
-			}
-		},
-		"ly_product_gallery_pncGLz": {
-			"type": "ly_productGallery",
-			"name": "おすすめ商品",
-			"settings": {
-				"title": "RECOMMENDS",
-				"sub_title": "おすすめ商品",
-				"show_button": true,
-				"button_text": "すべてみる",
-				"category_list": [],
-				"collection": "recommends",
-				"button_url": "shopify://collections/recommends"
-			}
-		},
-		"top-roots": {
-			"type": "top_roots",
-			"name": "ストアのこだわり",
-			"settings": {
-			}
-		}
-	},
-	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots"]
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "image_GNxKtW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
+          }
+        },
+        "image_XcHwaR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        },
+        "image_pFgc8R": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_GNxKtW",
+        "image_XcHwaR",
+        "image_pFgc8R"
+      ],
+      "settings": {}
+    },
+    "top-about": {
+      "type": "top_about",
+      "blocks": {
+        "image_keEiWp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
+          }
+        },
+        "image_pwR9q9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        },
+        "image_MtebTf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/692738e563c31e0fa26dfff2c4ab78fe.jpg"
+          }
+        },
+        "image_EPy6kg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cf880f7f0edb1aabb379db755b35ac21.jpg"
+          }
+        },
+        "image_kBzmEh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kids-beanie.jpg"
+          }
+        },
+        "image_xgB64C": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
+          }
+        },
+        "image_ihxWgM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fashion-model-walks-down-city-street.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_keEiWp",
+        "image_pwR9q9",
+        "image_MtebTf",
+        "image_EPy6kg",
+        "image_kBzmEh",
+        "image_xgB64C",
+        "image_ihxWgM"
+      ],
+      "settings": {
+        "button_url": ""
+      }
+    },
+    "top-product-category": {
+      "type": "ly_productGallery",
+      "name": "ていばん商品",
+      "settings": {
+        "title": "STANDARD",
+        "sub_title": "ていばん商品",
+        "show_button": true,
+        "button_text": "すべてみる",
+        "category_list": [
+          "dryfood",
+          "paste",
+          "sweets"
+        ],
+        "collection": "all",
+        "button_url": "shopify://collections/all"
+      }
+    },
+    "ly_product_gallery_pncGLz": {
+      "type": "ly_productGallery",
+      "name": "おすすめ商品",
+      "settings": {
+        "title": "RECOMMENDS",
+        "sub_title": "おすすめ商品",
+        "show_button": true,
+        "button_text": "すべてみる",
+        "category_list": [],
+        "collection": "recommends",
+        "button_url": "shopify://collections/recommends"
+      }
+    },
+    "top-roots": {
+      "type": "top_roots",
+      "blocks": {
+        "image_CEGHg4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg"
+          }
+        },
+        "image_tBRYb9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
+          }
+        },
+        "image_pj7iMt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_CEGHg4",
+        "image_tBRYb9",
+        "image_pj7iMt"
+      ],
+      "name": "ストアのこだわり",
+      "settings": {}
+    }
+  },
+  "order": [
+    "image_banner",
+    "top-about",
+    "top-product-category",
+    "ly_product_gallery_pncGLz",
+    "top-roots"
+  ]
 }
