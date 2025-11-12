@@ -40,24 +40,42 @@
     <div class="bl_card_body block">
       {% comment %} ブログバッジ表示 {% endcomment %}
       <div class="">
-        {% if article.blog %}
-          {% render 'bl_badge_blog', blog: article.blog, tag_type: 'solid', tag_size: 'sm', disable_link: true %}
+        {% if article.metafields.custom.article_category != blank %}
+          {% render 'bl_badge_blog',
+            blog: article.metafields.custom.article_category.value,
+            tag_type: 'solid',
+            tag_size: 'sm',
+            disable_link: true
+          %}
         {% endif %}
+        {{ article.blog.title }}
       </div>
-
-      <h3 class="product-title el_head_md mt-2">{{ article.title }}</h3>
+      <div class="bl_card_date mt-4">
+        <time class="text-xs text-gray-600" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+          {{ article.published_at | date: '%Y.%m.%d' }}
+        </time>
+      </div>
+      <h3 class="product-title el_head_md mt-1">{{ article.title }}</h3>
 
       {% if article.excerpt != blank %}
         <div class="bl_card_excerpt mt-2 text-sm">
           {{ article.excerpt | strip_html | truncatewords: 20 }}
         </div>
       {% endif %}
-
-      <div class="bl_card_date mt-2">
-        <time class="text-xs text-gray-600" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
-          {{ article.published_at | date: '%Y.%m.%d' }}
-        </time>
-      </div>
+      {% if article.tags != blank %}
+        <div class="bl_card_tagBox">
+          {% for tag in article.tags %}
+            {% render 'el_btn_tag',
+              label: tag.title,
+              bg_color: '#fff',
+              text_color: '#333',
+              type: 'tag',
+              size: 'sm',
+              disable_link: true
+            %}
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </a>
 </article>

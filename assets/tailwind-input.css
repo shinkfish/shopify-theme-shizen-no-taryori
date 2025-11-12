@@ -98,6 +98,19 @@
 .bl_card_body {
 	@apply px-2 py-4;
 }
+
+.bl_card_tagBox {
+	@apply mt-6 flex gap-2;
+}
+
+.bl_card_article {
+	@apply px-2 py-2;
+
+	.bl_card_body {
+		@apply px-0 py-2;
+	}
+}
+
 /* ===========================================
 	Element
    =========================================== */
@@ -140,6 +153,20 @@
 	@apply text-xs md:text-sm border-2 p-2 rounded transition-colors text-center font-bold overflow-hidden block w-fit;
 }
 
+.el_btn_tag_hash {
+	@apply border-gray-600
+	text-gray-600
+	border-[1.5px]
+	p-1
+	gap-1
+	flex
+	text-xs
+	font-semibold;
+}
+
+.el_btn_tag_xs {
+	@apply text-xs px-1!;
+}
 .el_btn_tag_sm {
 	@apply text-xs py-1;
 }

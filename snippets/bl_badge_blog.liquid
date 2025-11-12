@@ -24,18 +24,16 @@
     break
   endunless
 
-  # Get blog properties
-  assign blog_title = blog.title
+  # Get blog/metaobject properties
+  assign blog_title = blog.category_magazine_label.value
+  assign blog_color = blog.category_magazine_color.value
   assign blog_url = blog.url
-  assign tag_type = tag_type | default: 'outline'
+  assign tag_type = tag_type | default: 'solid'
   assign tag_size = tag_size
   assign disable_link = disable_link | default: false
 
-  # Default color for blog badges (can be customized)
-  assign bg_color = bg_color | default: '#8aa17c'
-
   # Calculate text color based on background brightness
-  assign bg_brightness = bg_color | color_brightness
+  assign bg_brightness = blog_color | color_brightness
   if bg_brightness > 128
     assign text_color = '#000000'
   else
@@ -46,7 +44,7 @@
 {% render 'el_btn_tag',
   url: blog_url,
   label: blog_title,
-  bg_color: bg_color,
+  bg_color: blog_color,
   text_color: text_color,
   type: tag_type,
   size: tag_size,
