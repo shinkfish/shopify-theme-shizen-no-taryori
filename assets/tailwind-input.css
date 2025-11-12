@@ -161,7 +161,7 @@
 	@apply text-3xl md:text-5xl font-bold;
 }
 .el_head_xl {
-	@apply text-3xl md:text-5xl font-bold;
+	@apply text-5xl md:text-6xl font-bold;
 }
 
 .el_head_bg {
