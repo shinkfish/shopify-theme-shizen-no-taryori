@@ -80,16 +80,7 @@
                       >
                     </div>
                   {% else %}
-                    <div class="swiper-slide" {{ block.shopify_attributes }}>
-                      <img
-                        src="{{ 'tokura-hero_1' |  append: '.webp' | asset_url }}"
-                        alt="{{ block.settings.image.alt | escape }}"
-                        width="{{ block.settings.image.width }}"
-                        height="{{ block.settings.image.height }}"
-                        loading="lazy"
-                        style="object-fit: cover;"
-                      >
-                    </div>
+                    <div class="swiper-slide" {{ block.shopify_attributes }}></div>
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}

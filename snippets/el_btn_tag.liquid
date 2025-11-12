@@ -4,6 +4,7 @@
 {%- assign bg_color = bg_color | default: '' -%}
 {%- assign text_color = text_color | default: '' -%}
 {%- assign size = size -%}
+{%- assign disable_link = disable_link | default: false -%}
 
 {% liquid
   # Build inline style if custom colors are provided
@@ -19,12 +20,21 @@
   else
     assign inline_style = ''
   endif
+
+  # Determine element tag
+  if disable_link
+    assign element_tag = 'span'
+  else
+    assign element_tag = 'a'
+  endif
 %}
 
 {% case type %}
   {% when 'outline' %}
-    <a
-      href="{{ url }}"
+    <{{ element_tag }}
+      {% unless disable_link %}
+        href="{{ url }}"
+      {% endunless %}
       class="
         el_btn_tag
         {% if color != blank %} el_btn_{{ color }}{% endif %}
@@ -35,11 +45,13 @@
       <div class="el_btn_tag_outline_mark w-6 h-full block" {{ inline_style }}></div>
 
       <p class="w-full justify-self-center px-1 py-2 whitespace-nowrap">{{ label }}</p>
-    </a>
+    </{{ element_tag }}>
 
   {% else %}
-    <a
-      href="{{ url }}"
+    <{{ element_tag }}
+      {% unless disable_link %}
+        href="{{ url }}"
+      {% endunless %}
       class="
         el_btn_tag
         {% if color != blank %} el_btn_{{ color }}{% endif %}
@@ -48,5 +60,5 @@
       {{ inline_style }}
     >
       <p class="w-full justify-self-center">{{ label }}</p>
-    </a>
+    </{{ element_tag }}>
 {% endcase %}

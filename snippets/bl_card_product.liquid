@@ -11,7 +11,7 @@
 %}
 
 <article class="bl_card_product hl_border-set_default">
-  <a href="{{ product.url }}">
+  <a href="{{ product.url }}" class="block">
     <div class="aspect-square overflow-hidden">
       {% if product.featured_image %}
         <img
@@ -26,13 +26,16 @@
     </div>
     <div class="bl_card_body block">
       {% comment %} タグ/カテゴリー表示 {% endcomment %}
-      {% if product.metafields.custom.product_category != blank %}
-        {% render 'bl_collection_badge',
-          category: product.metafields.custom.product_category.value,
-          tag_type: 'solid',
-          tag_size: 'sm'
-        %}
-      {% endif %}
+      <div class="">
+        {% if product.metafields.custom.product_category != blank %}
+          {% render 'bl_collection_badge',
+            category: product.metafields.custom.product_category.value,
+            tag_type: 'solid',
+            tag_size: 'sm',
+            disable_link: true
+          %}
+        {% endif %}
+      </div>
 
       <h3 class="product-title el_head_md mt-2">{{ product.title }}</h3>
       <div class="bl_card_price mt-2">

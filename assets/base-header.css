@@ -36,12 +36,12 @@ header .header_icon:hover {
 	transition: all 0.3s ease;
 }
 .header-logo svg.el_brandLogo-scrolled {
-	width: 60px !important;
+	width: 40px !important;
 	transition: all 0.3s ease;
 }
 @media screen and (min-width: 640px) {
 	.header-logo svg.el_brandLogo-scrolled {
-		width: 80px !important;
+		width: 60px !important;
 		transition: all 0.3s ease;
 	}
 }

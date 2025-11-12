@@ -4,12 +4,14 @@
   Renders a category badge with link to collection using el_btn_tag.
 
   @param {metaobject} category - Category metaobject (required)
-  @param {string} tag_type - Tag type: 'solid' or 'outline' (default: 'outline')
-  @param {string} tag_size - Tag size: 'sm' (default: empty)
+  @param {string} [tag_type] - Tag type: 'solid' or 'outline' (default: 'outline')
+  @param {string} [tag_size] - Tag size: 'sm' (default: empty)
+  @param {boolean} [disable_link] - Disable link and render as span (default: false)
 
   @example
   {% render 'bl_gallery-badge', category: category %}
   {% render 'bl_gallery-badge', category: category, tag_type: 'solid' %}
+  {% render 'bl_gallery-badge', category: category, disable_link: true %}
 {% enddoc %}
 
 {% liquid
@@ -27,6 +29,7 @@
   assign category_collection = category.category_collection.value
   assign tag_type = tag_type | default: 'outline'
   assign tag_size = tag_size
+  assign disable_link = disable_link | default: false
 
   # Get collection URL
   if category_collection.url
@@ -50,5 +53,6 @@
   bg_color: category_color,
   text_color: text_color,
   type: tag_type,
-  size: tag_size
+  size: tag_size,
+  disable_link: disable_link
 %}

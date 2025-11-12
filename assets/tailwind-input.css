@@ -174,7 +174,7 @@
 	helper
    =========================================== */
 .hl_border-set_default {
-	@apply border-2 rounded-sm;
+	@apply border-2 rounded-sm overflow-hidden;
 }
 /* ===========================================
 	Unique
