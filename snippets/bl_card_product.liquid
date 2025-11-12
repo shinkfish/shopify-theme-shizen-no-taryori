@@ -28,7 +28,7 @@
       {% comment %} タグ/カテゴリー表示 {% endcomment %}
       <div class="">
         {% if product.metafields.custom.product_category != blank %}
-          {% render 'bl_collection_badge',
+          {% render 'bl_badge_collection',
             category: product.metafields.custom.product_category.value,
             tag_type: 'solid',
             tag_size: 'sm',

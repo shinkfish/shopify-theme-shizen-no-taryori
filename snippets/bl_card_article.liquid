@@ -1,0 +1,63 @@
+{% doc %}
+  Article Card Component
+
+  Renders a blog article card with image, blog badge, title, excerpt, and date.
+
+  @param {article} article - Article object (required)
+
+  @example
+  {% render 'bl_card_article', article: article %}
+{% enddoc %}
+
+{% liquid
+  assign article = article | default: blank
+
+  unless article != blank
+    echo '<!-- Error: article parameter required -->'
+    break
+  endunless
+
+  assign image_width = 400
+  if article.image
+    assign image_height = image_width | divided_by: article.image.aspect_ratio | round
+  endif
+%}
+
+<article class="bl_card_article hl_border-set_default">
+  <a href="{{ article.url }}" class="block">
+    <div class="aspect-square overflow-hidden">
+      {% if article.image %}
+        <img
+          src="{{ article.image | image_url: width: 400 }}"
+          alt="{{ article.image.alt | default: article.title | escape }}"
+          width="400"
+          height="{{ image_height }}"
+          loading="lazy"
+          class="w-auto h-full object-cover"
+        >
+      {% endif %}
+    </div>
+    <div class="bl_card_body block">
+      {% comment %} ブログバッジ表示 {% endcomment %}
+      <div class="">
+        {% if article.blog %}
+          {% render 'bl_badge_blog', blog: article.blog, tag_type: 'solid', tag_size: 'sm', disable_link: true %}
+        {% endif %}
+      </div>
+
+      <h3 class="product-title el_head_md mt-2">{{ article.title }}</h3>
+
+      {% if article.excerpt != blank %}
+        <div class="bl_card_excerpt mt-2 text-sm">
+          {{ article.excerpt | strip_html | truncatewords: 20 }}
+        </div>
+      {% endif %}
+
+      <div class="bl_card_date mt-2">
+        <time class="text-xs text-gray-600" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+          {{ article.published_at | date: '%Y.%m.%d' }}
+        </time>
+      </div>
+    </div>
+  </a>
+</article>

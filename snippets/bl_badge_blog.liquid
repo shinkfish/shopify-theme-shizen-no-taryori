@@ -1,0 +1,54 @@
+{% doc %}
+  Blog Badge Component
+
+  Renders a blog badge with link to blog using el_btn_tag.
+
+  @param {blog} blog - Blog object (required)
+  @param {string} [tag_type] - Tag type: 'solid' or 'outline' (default: 'outline')
+  @param {string} [tag_size] - Tag size: 'sm' (default: empty)
+  @param {boolean} [disable_link] - Disable link and render as span (default: false)
+  @param {string} [bg_color] - Custom background color (optional)
+
+  @example
+  {% render 'bl_badge_blog', blog: article.blog %}
+  {% render 'bl_badge_blog', blog: blog, tag_type: 'solid' %}
+  {% render 'bl_badge_blog', blog: article.blog, disable_link: true %}
+{% enddoc %}
+
+{% liquid
+  # Parameter validation
+  assign blog = blog | default: empty
+
+  unless blog != empty
+    echo '<!-- Error: blog parameter required for blog-badge snippet -->'
+    break
+  endunless
+
+  # Get blog properties
+  assign blog_title = blog.title
+  assign blog_url = blog.url
+  assign tag_type = tag_type | default: 'outline'
+  assign tag_size = tag_size
+  assign disable_link = disable_link | default: false
+
+  # Default color for blog badges (can be customized)
+  assign bg_color = bg_color | default: '#8aa17c'
+
+  # Calculate text color based on background brightness
+  assign bg_brightness = bg_color | color_brightness
+  if bg_brightness > 128
+    assign text_color = '#000000'
+  else
+    assign text_color = '#ffffff'
+  endif
+%}
+
+{% render 'el_btn_tag',
+  url: blog_url,
+  label: blog_title,
+  bg_color: bg_color,
+  text_color: text_color,
+  type: tag_type,
+  size: tag_size,
+  disable_link: disable_link
+%}

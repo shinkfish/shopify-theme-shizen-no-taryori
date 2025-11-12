@@ -86,7 +86,7 @@
 			}
 		},
 		"top-product-category": {
-			"type": "ly_productGallery",
+			"type": "ly_productSlider",
 			"name": "ていばん商品",
 			"settings": {
 				"title": "STANDARD",
@@ -99,7 +99,7 @@
 			}
 		},
 		"ly_product_gallery_pncGLz": {
-			"type": "ly_productGallery",
+			"type": "ly_productSlider",
 			"name": "おすすめ商品",
 			"settings": {
 				"title": "RECOMMENDS",
@@ -142,7 +142,19 @@
 			"block_order": ["slide_CEGHg4", "slide_tBRYb9", "slide_pj7iMt"],
 			"name": "ストアのこだわり",
 			"settings": {}
+		},
+		"ly_articleSlider": {
+			"type": "ly_articleSlider",
+			"name": "マガジン",
+			"settings": {
+				"title": "MAGAZINE",
+				"sub_title": "読みもの",
+				"show_button": true,
+				"button_text": "すべてみる",
+				"blog": "magazine",
+				"button_url": "shopify://blogs/magazine"
+			}
 		}
 	},
-	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots"]
+	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots", "ly_articleSlider"]
 }

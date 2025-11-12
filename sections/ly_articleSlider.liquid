@@ -1,0 +1,95 @@
+{% liquid
+  assign selected_blog = blogs[section.settings.blog]
+%}
+
+<section>
+  {% comment %} wrapper {% endcomment %}
+  <div class="ly_cont ly_cont_section ">
+    {% render 'bl_section-title',
+      title: section.settings.title,
+      sub_title: section.settings.sub_title,
+      show_button: section.settings.show_button,
+      button_text: section.settings.button_text
+    %}
+    {% comment %} ブログ一覧バッジ（全ブログを表示） {% endcomment %}
+    <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
+      {% for blog in blogs %}
+        {% render 'bl_badge_blog', blog: blog %}
+      {% endfor %}
+    </div>
+    {% comment %} swiper {% endcomment %}
+    <div class="ly_cont_block_sm">
+      <div class="bl_swiper">
+        <div
+          class="swiper"
+          data-swiperSlidePC="4"
+          data-swiperSlideSP="1.5"
+        >
+          <div class="swiper-wrapper">
+            {% for article in selected_blog.articles %}
+              <div class="swiper-slide h-full">
+                {% render 'bl_card_article', article: article %}
+              </div>
+            {% endfor %}
+          </div>
+          {% render 'bl_swiper_controls' %}
+        </div>
+      </div>
+      {% comment %} /swiper {% endcomment %}
+    </div>
+  </div>
+  {% comment %} /wrapper {% endcomment %}
+</section>
+
+{% schema %}
+{
+  "name": "ブログスライダー",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "タイトル",
+      "default": "BLOG"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "サブタイトル",
+      "default": "ブログ"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "ボタン表示",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "ボタンテキスト",
+      "default": "すべてみる"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "表示するブログを選択"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "リンク先URL",
+      "info": "ボタンのリンク先を指定します"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ブログスライダー"
+    }
+  ]
+}
+{% endschema %}

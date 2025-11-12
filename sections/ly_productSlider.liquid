@@ -13,7 +13,7 @@
     %}
     <div class="mt-6 md:mt-10 flex gap-2 overflow-scroll">
       {% for category in section.settings.category_list %}
-        {% render 'bl_collection_badge', category: category %}
+        {% render 'bl_badge_collection', category: category %}
       {% endfor %}
     </div>
     {% comment %} swiper {% endcomment %}
