@@ -1,35 +1,55 @@
-<div class="ly_footer_catch-copy min-h-[300px] w-full">
-  <div class="p-auto">
-    {% if section.settings['catch-copy'] != blank %}
-      <p class="el_head_lg">{{ section.settings['catch-copy'] }}</p>
-    {% endif %}
-  </div>
+<div class="ly_footer_catch-copy aspect-3/1 w-full">
+  {% if section.settings['catch-copy'] != blank %}
+    <p class="el_head_lg text-white">{{ section.settings['catch-copy'] }}</p>
+  {% endif %}
 </div>
-<footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+<footer class="bg-black">
+  <div class="ly_footer ly_cont pt-10">
+    {% comment %} footer grid {% endcomment %}
+    <div class=" grid grid-cols-12">
+      <div class="ly_footer_brandLogo col-span-2">
+        {% render 'el_brandLogo', color: 'white' %}
+      </div>
+      <div class="ly_footer_nav col-span-10">
+        <div class="ly_footer_nav">
+          {% for block in section.blocks %}
+            {{ block.menu.links }}
+          {% endfor %}
+          }
+        </div>
+      </div>
+      {% comment %} /footer grid {% endcomment %}
+    </div>
+    <div class="text-center">
+      <div class="footer_copyright text-white">
+        &copy;
+        {{ 'now' | date: '%Y' }}
+        {{ shop.name | link_to: routes.root_url }}
+      </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+      <div class="footer_links">
+        {% for link in section.settings.menu.links %}
+          {{ link.title | link_to: link.url }}
+        {% endfor %}
+      </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
+      <div class="footer_payment">
+        {% if section.settings.show_payment_icons %}
+          {% for type in shop.enabled_payment_types %}
+            {{ type | payment_type_svg_tag }}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
   .ly_footer_catch-copy {
-    background-image: {{ section.settings.catch-copy_image}};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url({{ section.settings.catch-copy_image | image_url}});
   }
 </style>
 
@@ -40,12 +60,12 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:labels.menu"
+      "label": "フッターメニュー"
     },
     {
       "type": "image_picker",
       "id": "catch-copy_image",
-      "label": "キャッチコピー背景画像"
+      "label": "キャッチコピー背景画像/アスペクト比：3/1"
     },
     {
       "type": "text",
@@ -55,8 +75,14 @@
     {
       "type": "checkbox",
       "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
+      "label": "支払い方法 アイコン表示",
       "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "表示メニュー"
     }
   ]
 }
