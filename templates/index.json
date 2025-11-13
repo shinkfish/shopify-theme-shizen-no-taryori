@@ -8,161 +8,189 @@
  * ------------------------------------------------------------
  */
 {
-	"sections": {
-		"image_banner": {
-			"type": "image-banner",
-			"blocks": {
-				"image_GNxKtW": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
-					}
-				},
-				"image_XcHwaR": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				},
-				"image_pFgc8R": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				}
-			},
-			"block_order": ["image_GNxKtW", "image_XcHwaR", "image_pFgc8R"],
-			"settings": {}
-		},
-		"top-about": {
-			"type": "top_about",
-			"blocks": {
-				"image_keEiWp": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
-					}
-				},
-				"image_pwR9q9": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
-					}
-				},
-				"image_MtebTf": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/692738e563c31e0fa26dfff2c4ab78fe.jpg"
-					}
-				},
-				"image_EPy6kg": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/cf880f7f0edb1aabb379db755b35ac21.jpg"
-					}
-				},
-				"image_kBzmEh": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/kids-beanie.jpg"
-					}
-				},
-				"image_xgB64C": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
-					}
-				},
-				"image_ihxWgM": {
-					"type": "image",
-					"settings": {
-						"image": "shopify://shop_images/fashion-model-walks-down-city-street.jpg"
-					}
-				}
-			},
-			"block_order": ["image_keEiWp", "image_pwR9q9", "image_MtebTf", "image_EPy6kg", "image_kBzmEh", "image_xgB64C", "image_ihxWgM"],
-			"settings": {
-				"button_url": ""
-			}
-		},
-		"top-product-category": {
-			"type": "ly_productSlider",
-			"name": "ていばん商品",
-			"settings": {
-				"title": "STANDARD",
-				"sub_title": "ていばん商品",
-				"show_button": true,
-				"button_text": "すべてみる",
-				"category_list": ["dryfood", "paste", "sweets"],
-				"collection": "all",
-				"button_url": "shopify://collections/all"
-			}
-		},
-		"ly_product_gallery_pncGLz": {
-			"type": "ly_productSlider",
-			"name": "おすすめ商品",
-			"settings": {
-				"title": "RECOMMENDS",
-				"sub_title": "おすすめ商品",
-				"show_button": true,
-				"button_text": "すべてみる",
-				"category_list": [],
-				"collection": "recommends",
-				"button_url": "shopify://collections/recommends"
-			}
-		},
-		"top-roots": {
-			"type": "top_roots",
-			"blocks": {
-				"slide_CEGHg4": {
-					"type": "slide",
-					"settings": {
-						"image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
-						"title": "タイトル",
-						"description": "説明文"
-					}
-				},
-				"slide_tBRYb9": {
-					"type": "slide",
-					"settings": {
-						"image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg",
-						"title": "タイトル",
-						"description": "説明文"
-					}
-				},
-				"slide_pj7iMt": {
-					"type": "slide",
-					"settings": {
-						"image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
-						"title": "タイトル",
-						"description": "説明文"
-					}
-				}
-			},
-			"block_order": ["slide_CEGHg4", "slide_tBRYb9", "slide_pj7iMt"],
-			"name": "ストアのこだわり",
-			"settings": {}
-		},
-		"ly_articleSlider": {
-			"type": "ly_articleSlider",
-			"name": "マガジン",
-			"settings": {
-				"title": "MAGAZINE",
-				"sub_title": "読みもの",
-				"show_button": true,
-				"button_text": "すべてみる",
-				"blog": "magazine",
-				"button_url": "shopify://blogs/magazine"
-			}
-		},
-		"top_news": {
-			"type": "top_news",
-			"name": "ニュース",
-			"settings": {
-				"blog": "news",
-				"button_url": "shopify://blogs/news"
-			}
-		}
-	},
-	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots", "ly_articleSlider", "top_news"]
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "image_GNxKtW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
+          }
+        },
+        "image_XcHwaR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        },
+        "image_pFgc8R": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_GNxKtW",
+        "image_XcHwaR",
+        "image_pFgc8R"
+      ],
+      "settings": {}
+    },
+    "top-about": {
+      "type": "top_about",
+      "blocks": {
+        "image_keEiWp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/52ffe54d2c90517005224ae43465dc47.jpg"
+          }
+        },
+        "image_pwR9q9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1762914a57bc1126ea1a43f120d17b36_950973fd-5740-4e4c-a737-fad2b91139c3.jpg"
+          }
+        },
+        "image_MtebTf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/692738e563c31e0fa26dfff2c4ab78fe.jpg"
+          }
+        },
+        "image_EPy6kg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cf880f7f0edb1aabb379db755b35ac21.jpg"
+          }
+        },
+        "image_kBzmEh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kids-beanie.jpg"
+          }
+        },
+        "image_xgB64C": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg"
+          }
+        },
+        "image_ihxWgM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fashion-model-walks-down-city-street.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_keEiWp",
+        "image_pwR9q9",
+        "image_MtebTf",
+        "image_EPy6kg",
+        "image_kBzmEh",
+        "image_xgB64C",
+        "image_ihxWgM"
+      ],
+      "settings": {
+        "button_url": ""
+      }
+    },
+    "top-product-category": {
+      "type": "ly_productSlider",
+      "name": "ていばん商品",
+      "settings": {
+        "title": "STANDARD",
+        "sub_title": "ていばん商品",
+        "show_button": true,
+        "button_text": "すべてみる",
+        "category_list": [
+          "dryfood",
+          "paste",
+          "sweets"
+        ],
+        "collection": "all",
+        "button_url": "shopify://collections/all"
+      }
+    },
+    "ly_product_gallery_pncGLz": {
+      "type": "ly_productSlider",
+      "name": "おすすめ商品",
+      "settings": {
+        "title": "RECOMMENDS",
+        "sub_title": "おすすめ商品",
+        "show_button": true,
+        "button_text": "すべてみる",
+        "category_list": [],
+        "collection": "recommends",
+        "button_url": "shopify://collections/recommends"
+      }
+    },
+    "top-roots": {
+      "type": "top_roots",
+      "blocks": {
+        "slide_CEGHg4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
+            "title": "旬を閉じ込めた自然の味",
+            "description": "秋田の農産物を無添加で加工。\n素材本来の味わいをお届けします。"
+          }
+        },
+        "slide_tBRYb9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/female-fashion-model-poses-in-city-street.jpg",
+            "title": "生産者の顔が見える安心",
+            "description": "地域の農家と連携し、\n畑から加工、販売までを一貫して行っています。"
+          }
+        },
+        "slide_pj7iMt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
+            "title": "からだにやさしいおやつを",
+            "description": "保存料・着色料・香料は一切不使用。\n小さなお子さまにも安心して食べていただけます。"
+          }
+        }
+      },
+      "block_order": [
+        "slide_CEGHg4",
+        "slide_tBRYb9",
+        "slide_pj7iMt"
+      ],
+      "name": "ストアのこだわり",
+      "settings": {}
+    },
+    "ly_articleSlider": {
+      "type": "ly_articleSlider",
+      "name": "マガジン",
+      "settings": {
+        "title": "MAGAZINE",
+        "sub_title": "読みもの",
+        "show_button": true,
+        "button_text": "すべてみる",
+        "blog": "magazine",
+        "button_url": "shopify://blogs/magazine"
+      }
+    },
+    "top_news": {
+      "type": "top_news",
+      "name": "ニュース",
+      "settings": {
+        "blog": "news",
+        "button_url": "shopify://blogs/news"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "top-about",
+    "top-product-category",
+    "ly_product_gallery_pncGLz",
+    "top-roots",
+    "ly_articleSlider",
+    "top_news"
+  ]
 }
