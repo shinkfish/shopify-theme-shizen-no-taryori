@@ -25,11 +25,20 @@
           "settings": {
             "footer-menu": "footer-company-info"
           }
+        },
+        "sns_link_pWQdTy": {
+          "type": "sns_link",
+          "name": "SNSリンク LINE",
+          "settings": {
+            "url": "shopify://pages/contact",
+            "icon": "shopify://shop_images/LINE_Brand_icon_b5305f73-260a-4751-bb99-b3125d543f3f.png"
+          }
         }
       },
       "block_order": [
         "menu_4rdM3C",
-        "menu_k6A4zq"
+        "menu_k6A4zq",
+        "sns_link_pWQdTy"
       ],
       "settings": {
         "menu": "footer",
