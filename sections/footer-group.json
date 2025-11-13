@@ -40,13 +40,21 @@
             "url": "shopify://policies/privacy-policy",
             "icon": "shopify://shop_images/Instagram_Glyph_Black.png"
           }
+        },
+        "sns_link_nFj43e": {
+          "type": "sns_link",
+          "settings": {
+            "url": "shopify://policies/privacy-policy",
+            "icon": "shopify://shop_images/yt_icon_almostblack_digital.png"
+          }
         }
       },
       "block_order": [
         "menu_4rdM3C",
         "menu_k6A4zq",
         "sns_link_pWQdTy",
-        "sns_link_KXKxEA"
+        "sns_link_KXKxEA",
+        "sns_link_nFj43e"
       ],
       "settings": {
         "menu": "footer",
