@@ -57,9 +57,9 @@
                     <div class="el_head_lg md:text-right">
                       {{ block.settings.title }}
                     </div>
-                    <div class="font-bold mt-4">
-                      <p>
-                        {{ block.settings.description }}
+                    <div class="font-bold mt-4 ml-auto">
+                      <p class="text-right">
+                        {{ block.settings.description | newline_to_br }}
                       </p>
                     </div>
                   </div>
