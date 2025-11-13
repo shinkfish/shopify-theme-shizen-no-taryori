@@ -13,6 +13,24 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "menu_4rdM3C": {
+          "type": "menu",
+          "settings": {
+            "footer-menu": "footer"
+          }
+        },
+        "menu_k6A4zq": {
+          "type": "menu",
+          "settings": {
+            "footer-menu": "footer-company-info"
+          }
+        }
+      },
+      "block_order": [
+        "menu_4rdM3C",
+        "menu_k6A4zq"
+      ],
       "settings": {
         "menu": "footer",
         "catch-copy_image": "shopify://shop_images/urban-vintage-denimn-on-hangers.jpg",
