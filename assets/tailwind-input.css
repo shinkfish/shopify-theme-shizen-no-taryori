@@ -61,6 +61,9 @@
 .ly_cont_section {
 	@apply mt-30 px-4;
 }
+.ly_cont_section_bg_sm {
+	@apply mt-10 pt-10 px-4;
+}
 .ly_cont_section_bg {
 	@apply pt-30 px-4;
 }
@@ -136,7 +139,7 @@
 	}
 }
 .el_btn_black {
-	@apply bg-black text-white hover:bg-neutral-600;
+	@apply bg-black border-black text-white hover:bg-neutral-600;
 }
 .el_head_marker {
 	@apply relative w-fit px-3;
@@ -145,7 +148,7 @@
 		@apply absolute left-[50%] translate-x-[-50%] inline-block w-full h-4 -bottom-1 rounded bg-primary mix-blend-multiply min-w-[200px] content-[''];
 	}
 }
-.el_btn_widthArrow {
+.el_btn_withArrow {
 	@apply relative flex justify-between items-center;
 }
 
@@ -247,5 +250,5 @@
 =========================================== */
 
 .un_swipe_body_roots {
-	@apply bg-white-transparent h-auto! md:absolute md:right-0 md:bottom-0 md:max-w-[600px] mt-10 md:mt-0 md:p-4;
+	@apply bg-white-transparent h-auto! md:absolute md:right-0 md:bottom-0 md:max-w-[600px] px-2 py-10 md:p-4;
 }

@@ -1,3 +1,10 @@
+<div class="ly_footer_catch-copy min-h-[300px] w-full">
+  <div class="p-auto">
+    {% if section.settings['catch-copy'] != blank %}
+      <p class="el_head_lg">{{ section.settings['catch-copy'] }}</p>
+    {% endif %}
+  </div>
+</div>
 <footer>
   <div class="footer__copyright">
     &copy;
@@ -20,22 +27,11 @@
   </div>
 </footer>
 
-{% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+<style>
+  .ly_footer_catch-copy {
+    background-image: {{ section.settings.catch-copy_image}};
   }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
+</style>
 
 {% schema %}
 {
@@ -45,6 +41,16 @@
       "type": "link_list",
       "id": "menu",
       "label": "t:labels.menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "catch-copy_image",
+      "label": "キャッチコピー背景画像"
+    },
+    {
+      "type": "text",
+      "id": "catch-copy",
+      "label": "キャッチコピーテキストを入力"
     },
     {
       "type": "checkbox",

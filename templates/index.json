@@ -159,7 +159,8 @@
 			"type": "top_news",
 			"name": "ニュース",
 			"settings": {
-				"blog": "news"
+				"blog": "news",
+				"button_url": "shopify://blogs/news"
 			}
 		}
 	},

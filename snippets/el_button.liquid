@@ -8,7 +8,7 @@
   {% when 'outline' %}
     <a
       href="{{ url }}"
-      class="el_btn el_btn_{{ color }} el_btn_outline el_btn_{{ size }}{% if with_arrow %} el_btn_widthArrow{% endif %}"
+      class="el_btn el_btn_{{ color }} el_btn_outline el_btn_{{ size }}{% if with_arrow %} el_btn_withArrow{% endif %}"
     >
       <p class="w-full justify-self-center">{{ label }}</p>
       {% if with_arrow %}
@@ -21,7 +21,7 @@
   {% else %}
     <a
       href="{{ url }}"
-      class="el_btn el_btn_{{ color }} el_btn_{{ size }}{% if with_arrow %} el_btn_widthArrow{% endif %}"
+      class="el_btn el_btn_{{ color }} el_btn_{{ size }}{% if with_arrow %} el_btn_withArrow{% endif %}"
     >
       <p class="w-full justify-self-center">{{ label }}</p>
 

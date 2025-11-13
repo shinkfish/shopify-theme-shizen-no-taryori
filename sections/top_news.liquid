@@ -9,21 +9,46 @@
 %}
 
 <section>
-  <div class="bg-primary-variant pb-20">
+  <div class="bg-primary-variant pb-10">
     {% comment %} wrapper {% endcomment %}
-    <div class="ly_cont ly_cont_section_bg">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0">
+    <div class="ly_cont ly_cont_section_bg_sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-4">
         {% comment %} heading {% endcomment %}
-        <div class="w-fit lg:col-span-3 flex flex-col gap-6">
-          {% render 'bl_section-title', title: 'NEWS', sub_title: 'ニュース' %}
+        <div class="lg:col-span-3 flex flex-col gap-6">
+          {% render 'bl_section-title',
+            title: 'NEWS',
+            sub_title: 'ニュース',
+            show_button: true,
+            layout_type: 'vertical'
+          %}
         </div>
         {% comment %} /heading {% endcomment %}
         <div class="lg:col-span-9">
-          <div class="flex flex-col gap-4">
-            {% for article in selected_blog.articles %}
-              <article class="bg-white lg:h-[140px] lg:max-h-[140px]">
-                <a href="{{ article.url }}" class="flex flex-col lg:flex-row-reverse">
-                  <div class="aspect-4/3  lg:h-[140px] lg:max-h-[140px]">
+          <div class="flex flex-col gap-3 md:gap-4">
+            {% for article in selected_blog.articles limit: 4 %}
+              <article class="bg-white h-[140px] max-h-[140px]">
+                <a href="{{ article.url }}" class="flex h-full">
+                  <div class="w-full block p-2">
+                    {% comment %} ブログバッジ表示 {% endcomment %}
+
+                    {% if article.metafields.custom.article_category_news != blank %}
+                      {% render 'bl_badge_blog',
+                        blog: article.metafields.custom.article_category_news.value,
+                        tag_type: 'solid',
+                        tag_size: 'sm',
+                        disable_link: true
+                      %}
+                    {% endif %}
+
+                    <div class="bl_card_date mt-4">
+                      <time class="text-xs text-gray-600" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                        {{ article.published_at | date: '%Y.%m.%d' }}
+                      </time>
+                    </div>
+                    <h3 class="product-title el_head_sm mt-1">{{ article.title }}</h3>
+                  </div>
+                  {% comment %} image {% endcomment %}
+                  <div class="aspect-video overflow-hidden h-full h-[100px  md:h-[140px] md:max-h-[140px]">
                     {% if article.image %}
                       <img
                         src="{{ article.image | image_url: width: 400 }}"
@@ -33,32 +58,6 @@
                         loading="lazy"
                         class="w-auto h-full object-cover"
                       >
-                    {% endif %}
-                  </div>
-                  <div class="w-full block p-2">
-                    {% comment %} ブログバッジ表示 {% endcomment %}
-                    <div class="">
-                      {% if article.metafields.custom.article_category_news != blank %}
-                        {% render 'bl_badge_blog',
-                          blog: article.metafields.custom.article_category_news.value,
-                          tag_type: 'solid',
-                          tag_size: 'sm',
-                          disable_link: true
-                        %}
-                      {% endif %}
-                      {{ article.blog.title }}
-                    </div>
-                    <div class="bl_card_date mt-4">
-                      <time class="text-xs text-gray-600" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
-                        {{ article.published_at | date: '%Y.%m.%d' }}
-                      </time>
-                    </div>
-                    <h3 class="product-title el_head_md mt-1">{{ article.title }}</h3>
-
-                    {% if article.excerpt != blank %}
-                      <div class="bl_card_excerpt mt-2 text-sm">
-                        {{ article.excerpt | strip_html | truncatewords: 20 }}
-                      </div>
                     {% endif %}
                   </div>
                 </a>
@@ -86,6 +85,12 @@
       "type": "blog",
       "id": "blog",
       "label": "表示するブログを選択"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "リンク先URL",
+      "info": "ボタンのリンク先を指定します"
     }
   ]
 }
