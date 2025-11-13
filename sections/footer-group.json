@@ -14,7 +14,9 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "",
+        "menu": "footer",
+        "catch-copy_image": "shopify://shop_images/urban-vintage-denimn-on-hangers.jpg",
+        "catch-copy": "キャッチコピー",
         "show_payment_icons": true
       }
     }
