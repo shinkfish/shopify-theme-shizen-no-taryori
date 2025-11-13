@@ -25,8 +25,8 @@
   endunless
 
   # Get blog/metaobject properties
-  assign blog_title = blog.category_magazine_label.value
-  assign blog_color = blog.category_magazine_color.value
+  assign blog_title = blog.category_label.value
+  assign blog_color = blog.category_color.value
   assign blog_url = blog.url
   assign tag_type = tag_type | default: 'solid'
   assign tag_size = tag_size

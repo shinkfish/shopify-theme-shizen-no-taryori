@@ -10,7 +10,7 @@
   assign image_height = image_width | divided_by: product.featured_image.aspect_ratio | round
 %}
 
-<article class="bl_card_product hl_border-set_default">
+<article class="bl_card_product hl_border-set_default bg-white">
   <a href="{{ product.url }}" class="block">
     <div class="aspect-square overflow-hidden">
       {% if product.featured_image %}

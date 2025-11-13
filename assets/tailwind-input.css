@@ -37,6 +37,7 @@
 	--color-accent-2: #50e3c2;
 	--color-on-accent-1: #0d0d0d;
 	--color-on-accent-2: #0d0d0d;
+	--color-bg-base: #f5eddec4;
 
 	--color-white-transparent: rgba(255, 255, 255, 0.9);
 	/* ===========================================
@@ -51,7 +52,7 @@
    =========================================== */
 
 .ly_cont_body {
-	@apply grid grid-cols-1 grid-rows-[auto_1fr_auto] min-h-screen min-w-full;
+	@apply grid grid-cols-1 grid-rows-[auto_1fr_auto] min-h-screen min-w-full bg-bg-base;
 }
 
 .ly_cont {
@@ -123,7 +124,7 @@
 	@apply block px-4 py-3 rounded transition-colors text-center font-bold;
 }
 .el_btn_outline {
-	@apply border-2;
+	@apply border-2 bg-white;
 }
 .el_btn_primary {
 	@apply bg-primary text-on-primary;
@@ -171,7 +172,7 @@
 	@apply text-xs py-1;
 }
 .el_btn_tag_outline {
-	@apply flex p-0;
+	@apply flex p-0 bg-white;
 }
 
 /* heading */

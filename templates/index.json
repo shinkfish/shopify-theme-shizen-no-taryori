@@ -154,7 +154,14 @@
 				"blog": "magazine",
 				"button_url": "shopify://blogs/magazine"
 			}
+		},
+		"top_news": {
+			"type": "top_news",
+			"name": "ニュース",
+			"settings": {
+				"blog": "news"
+			}
 		}
 	},
-	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots", "ly_articleSlider"]
+	"order": ["image_banner", "top-about", "top-product-category", "ly_product_gallery_pncGLz", "top-roots", "ly_articleSlider", "top_news"]
 }
