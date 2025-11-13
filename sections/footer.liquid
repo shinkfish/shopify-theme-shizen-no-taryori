@@ -1,7 +1,13 @@
-<div class="ly_footer_catch-copy aspect-3/1 w-full">
-  {% if section.settings['catch-copy'] != blank %}
-    <p class="el_head_lg text-white">{{ section.settings['catch-copy'] }}</p>
-  {% endif %}
+<div class="ly_footer_catch-copy aspect-3/1 lg:aspect-3/1 w-full">
+  <div class="ly_cont">
+    {% if section.settings['catch-copy'] != blank %}
+      <div class="w-fit m-auto">
+        <p class="text-xl sm:text-4xl md:text-4xl  lg:text-5xl font-bold text-white">
+          {{ section.settings['catch-copy'] | newline_to_br }}
+        </p>
+      </div>
+    {% endif %}
+  </div>
 </div>
 <footer class="bg-black">
   <div class="ly_footer ly_cont md:pt-10">
@@ -79,8 +85,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45)), url({{ section.settings.catch-copy_image | image_url}});
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url({{ section.settings.catch-copy_image | image_url}});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 </style>
 
@@ -99,7 +107,7 @@
       "label": "キャッチコピー背景画像/アスペクト比：3/1"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "catch-copy",
       "label": "キャッチコピーテキストを入力"
     },
