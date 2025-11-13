@@ -33,12 +33,20 @@
             "url": "shopify://pages/contact",
             "icon": "shopify://shop_images/LINE_Brand_icon_b5305f73-260a-4751-bb99-b3125d543f3f.png"
           }
+        },
+        "sns_link_KXKxEA": {
+          "type": "sns_link",
+          "settings": {
+            "url": "shopify://policies/privacy-policy",
+            "icon": "shopify://shop_images/Instagram_Glyph_Black.png"
+          }
         }
       },
       "block_order": [
         "menu_4rdM3C",
         "menu_k6A4zq",
-        "sns_link_pWQdTy"
+        "sns_link_pWQdTy",
+        "sns_link_KXKxEA"
       ],
       "settings": {
         "menu": "footer",
