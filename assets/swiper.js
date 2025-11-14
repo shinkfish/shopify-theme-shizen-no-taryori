@@ -20,15 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	// その他の基本的なSwiper
-	const basicSwipers = document.querySelectorAll(".swiper:not(.swiper-main .swiper):not(.swiper-thumbnails)");
+	const basicSwipers = document.querySelectorAll(".bl_swiper .swiper:not(.swiper-main .swiper):not(.swiper-thumbnails)");
 
 	basicSwipers.forEach((container, index) => {
 		const swiperId = `swiper-${index + 1}`;
 		container.id = swiperId;
 
+		const parentWrapper = container.closest(".bl_swiper");
+
 		// ナビゲーションボタンを取得（bl_swiper_controls.liquidでレンダリングされたもの）
-		const nextButton = container.querySelector(".swiper-button-next");
-		const prevButton = container.querySelector(".swiper-button-prev");
+		const nextButton = container.querySelector(".swiper-button-next") || (parentWrapper ? parentWrapper.querySelector(".swiper-button-next") : null);
+		const prevButton = container.querySelector(".swiper-button-prev") || (parentWrapper ? parentWrapper.querySelector(".swiper-button-prev") : null);
 
 		const slidePerViewPCAttr = container.getAttribute("data-swiperSlidePC");
 		const slidePerViewSPAttr = container.getAttribute("data-swiperSlideSP");
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Swiper設定オブジェクトを作成
 		const swiperConfig = {
-			autoHeight: true,
+			autoHeight: false,
 			slidesPerView: slidePerViewSP,
 			freeMode: freeMode,
 			direction: direction === "vertical" ? "vertical" : direction,
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 
 		// Pagination設定（要素が存在する場合のみ）
-		const paginationEl = container.querySelector(".swiper-pagination");
+		const paginationEl = container.querySelector(".swiper-pagination") || (parentWrapper ? parentWrapper.querySelector(".swiper-pagination") : null);
 		if (paginationEl) {
 			swiperConfig.pagination = {
 				el: paginationEl,

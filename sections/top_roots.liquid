@@ -30,46 +30,57 @@
       {% comment %} /heading {% endcomment %}
       {% comment %} swiper {% endcomment %}
       <div class="lg:col-span-8">
-        <div
-          class="swiper"
-          data-swiperSlidePC="1"
-          data-swiperSlideSP="1"
-          data-swiperShowNavigation="true"
-        >
-          <div class="swiper-wrapper">
-            <!-- 追加の画像ブロック -->
-            {%- for block in section.blocks -%}
-              {%- if block.settings.image != blank -%}
-                <div class="swiper-slide relative" {{ block.shopify_attributes }}>
-                  <div class=" ">
-                    <img
-                      src="{{ block.settings.image | image_url: width: 1200 }}"
-                      alt="{{ block.settings.image.alt | escape }}"
-                      width="{{ block.settings.image.width }}"
-                      height="{{ block.settings.image.height }}"
-                      loading="lazy"
-                      style="object-fit: cover;"
-                      class="aspect-4/3"
-                    >
-                  </div>
-
-                  <div class="swiper-body un_swipe_body_roots">
-                    <div class="el_head_lg md:text-right">
-                      {{ block.settings.title }}
+        {% comment %} bl_swiepr {% endcomment %}
+        <div class="bl_swiper">
+          <div
+            class="swiper overflow-visible"
+            data-swiperSlidePC="1"
+            data-swiperSlideSP="1"
+            data-swiperShowNavigation="true"
+          >
+            <div class="swiper-wrapper">
+              <!-- 追加の画像ブロック -->
+              {%- for block in section.blocks -%}
+                {%- if block.settings.image != blank -%}
+                  {% comment %} slide {% endcomment %}
+                  <div
+                    class="swiper-slide relative flex! h-auto! flex-col items-stretch justify-end"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% comment %} image {% endcomment %}
+                    <div class="aspect-4/3 h-auto! md:h-full! overflow-hidden">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 1200 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        loading="lazy"
+                        class="object-cover object-center w-full h-full"
+                      >
                     </div>
-                    <div class="font-bold mt-4 ml-auto">
-                      <p class="text-right">
-                        {{ block.settings.description | newline_to_br }}
-                      </p>
+                    {% comment %} image {% endcomment %}
+                    {% comment %} body {% endcomment %}
+                    <div class="swiper-body un_swipe_body_roots grow flex flex-col">
+                      <div class="el_head_lg md:text-right">
+                        {{ block.settings.title }}
+                      </div>
+                      <div class="font-bold mt-4 md:ml-auto flex items-end">
+                        <p class="md:text-right">
+                          {{ block.settings.description | newline_to_br }}
+                        </p>
+                      </div>
                     </div>
+                    {% comment %} body {% endcomment %}
                   </div>
-                </div>
-              {% endif %}
-            {%- endfor -%}
+                  {% comment %} slide {% endcomment %}
+                {% endif %}
+              {%- endfor -%}
+            </div>
           </div>
           {% render 'bl_swiper_controls' %}
+          {% comment %} /swiper {% endcomment %}
         </div>
-        {% comment %} /swiper {% endcomment %}
+        {% comment %} bl_swiepr {% endcomment %}
       </div>
     </div>
     {% comment %} /.flex {% endcomment %}
